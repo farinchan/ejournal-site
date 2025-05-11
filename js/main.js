@@ -230,12 +230,12 @@
         /* ---------------------------------------------------------
             7. Background Image
         --------------------------------------------------------- */
-        var $backgroundImage = $('.bg-image, .bg-image-top');
-        $backgroundImage.each(function() {
-            var $this = $(this),
-                $bgImage = $this.data('bg');
-            $this.css('background-image', 'url('+$bgImage+')');
-        });
+        // var $backgroundImage = $('.bg-image, .bg-image-top');
+        // $backgroundImage.each(function() {
+        //     var $this = $(this),
+        //         $bgImage = $this.data('bg');
+        //     $this.css('background-image', 'url('+$bgImage+')');
+        // });
 
 
         /* ---------------------------------------------------------
@@ -350,31 +350,31 @@
         /* --------------------------------------------------------
             15. Slider One Active 
         --------------------------------------------------------- */
-        $('.ltn__slide-one-active').slick({
-            autoplay: false,
-            autoplaySpeed: 2000,
-            arrows: true,
-            dots: false,
-            fade: true,
-            cssEase: 'linear',
-            infinite: true,
-            speed: 300,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-            prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
-            nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
-            responsive: [
-                {
-                    breakpoint: 1200,
-                    settings: {
-                        arrows: false,
-                        dots: true,
-                    }
-                }
-            ]
-        }).on('afterChange', function(){
-            new WOW().init();
-        });
+        // $('.ltn__slide-one-active').slick({
+        //     autoplay: false,
+        //     autoplaySpeed: 2000,
+        //     arrows: true,
+        //     dots: false,
+        //     fade: true,
+        //     cssEase: 'linear',
+        //     infinite: true,
+        //     speed: 300,
+        //     slidesToShow: 1,
+        //     slidesToScroll: 1,
+        //     prevArrow: '<a class="slick-prev"><i class="fas fa-arrow-left" alt="Arrow Icon"></i></a>',
+        //     nextArrow: '<a class="slick-next"><i class="fas fa-arrow-right" alt="Arrow Icon"></i></a>',
+        //     responsive: [
+        //         {
+        //             breakpoint: 1200,
+        //             settings: {
+        //                 arrows: false,
+        //                 dots: true,
+        //             }
+        //         }
+        //     ]
+        // }).on('afterChange', function(){
+        //     new WOW().init();
+        // });
         /* --------------------------------------------------------
             15-2. Slider Active 2
         --------------------------------------------------------- */
