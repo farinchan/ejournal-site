@@ -1,0 +1,341 @@
+/* ==================================================
+   Enhanced Journal Modal Styles
+   ================================================== */
+
+/* Modal Size Enhancement - Extra Large */
+.modal-xl {
+    max-width: 90% !important;
+    width: 90% !important;
+}
+
+@media (min-width: 1200px) {
+    .modal-xl {
+        max-width: 1200px !important;
+    }
+}
+
+/* Modal Content Styling */
+.journal-modal-content {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Modal Header Styling */
+.journal-modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-bottom: none;
+    padding: 20px 30px;
+    color: white;
+    position: relative;
+}
+
+.journal-modal-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="rgba(255,255,255,0.1)"><polygon points="0,0 1000,0 1000,60 0,100"/></svg>');
+    pointer-events: none;
+}
+
+.journal-modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.journal-modal-title i {
+    font-size: 1.3rem;
+    opacity: 0.9;
+}
+
+.journal-modal-close {
+    color: white;
+    opacity: 0.8;
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-shadow: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.journal-modal-close:hover {
+    opacity: 1;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(90deg);
+    color: white;
+}
+
+/* Modal Body Styling */
+.journal-modal-body {
+    padding: 30px;
+    background: linear-gradient(45deg, #f8f9fa 0%, #ffffff 100%);
+    position: relative;
+}
+
+.journal-modal-body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Team Details Enhancement */
+.ltn__team-details-area {
+    position: relative;
+    z-index: 1;
+}
+
+.ltn__team-details-member-info {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.team-details-img {
+    position: relative;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.team-details-img img {
+    transition: transform 0.3s ease;
+    border-radius: 12px;
+}
+
+.team-details-img:hover img {
+    transform: scale(1.05);
+}
+
+.ltn__team-details-member-info h2 {
+    color: #2c3e50;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 20px 0 25px 0;
+    line-height: 1.3;
+}
+
+/* Menu Widget Enhancement */
+.ltn__menu-widget-2 ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ltn__menu-widget-2 ul li {
+    margin-bottom: 12px;
+}
+
+.ltn__menu-widget-2 ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(102, 126, 234, 0.3);
+}
+
+.ltn__menu-widget-2 ul li a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    text-decoration: none;
+    color: white;
+}
+
+.ltn__menu-widget-2 ul li a span i {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 6px;
+    border-radius: 50%;
+    margin-left: 8px;
+}
+
+/* Details Section Enhancement */
+.ltn__team-details-member-info-details {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.ltn__team-details-member-about ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ltn__team-details-member-about ul li {
+    padding: 12px 0;
+    border-bottom: 1px solid #f1f3f4;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.ltn__team-details-member-about ul li:last-child {
+    border-bottom: none;
+}
+
+.ltn__team-details-member-about ul li strong {
+    color: #2c3e50;
+    font-weight: 600;
+    min-width: 140px;
+    display: inline-block;
+    position: relative;
+}
+
+.ltn__team-details-member-about ul li strong::after {
+    content: ':';
+    position: absolute;
+    right: -5px;
+}
+
+.ltn__team-details-member-info-details hr {
+    border: none;
+    height: 2px;
+    background: linear-gradient(90deg, #667eea, #764ba2);
+    margin: 25px 0;
+    border-radius: 2px;
+}
+
+.ltn__team-details-member-info-details p {
+    color: #555;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    margin: 0;
+    text-align: justify;
+}
+
+/* Modal Backdrop Enhancement */
+.modal-backdrop.show {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(3px);
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .modal-xl {
+        max-width: 95% !important;
+        margin: 10px;
+    }
+    
+    .journal-modal-header {
+        padding: 15px 20px;
+    }
+    
+    .journal-modal-title {
+        font-size: 1.2rem;
+    }
+    
+    .journal-modal-body {
+        padding: 20px;
+    }
+    
+    .ltn__team-details-member-info,
+    .ltn__team-details-member-info-details {
+        padding: 20px;
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .modal-xl {
+        max-width: 98% !important;
+        margin: 5px;
+    }
+    
+    .journal-modal-header {
+        padding: 12px 15px;
+    }
+    
+    .journal-modal-title {
+        font-size: 1.1rem;
+    }
+    
+    .journal-modal-body {
+        padding: 15px;
+    }
+    
+    .ltn__team-details-member-about ul li {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .ltn__team-details-member-about ul li strong {
+        min-width: auto;
+    }
+}
+
+/* Loading Animation for Modal */
+.modal.fade .modal-dialog {
+    transition: transform 0.3s ease-out;
+}
+
+.modal.show .modal-dialog {
+    transform: none;
+}
+
+/* Custom Scrollbar for Modal Body */
+.journal-modal-body::-webkit-scrollbar {
+    width: 6px;
+}
+
+.journal-modal-body::-webkit-scrollbar-track {
+    background: #f1f3f4;
+    border-radius: 10px;
+}
+
+.journal-modal-body::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 10px;
+}
+
+.journal-modal-body::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
