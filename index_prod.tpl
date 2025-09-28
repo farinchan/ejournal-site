@@ -26,33 +26,87 @@
     <style>
         /* Journal Card Hover Effects */
         a:hover img {
-            transform: translateY(-15px);
+            transform: translateY(-15px) scale(1.02);
+            filter: brightness(1.1) saturate(1.1);
+        }
+        
+        /* Enhanced Image Hover */
+        .team-img img {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        
+        .ltn__team-item-3-2:hover .team-img img {
+            transform: scale(1.05);
+            filter: brightness(1.05) saturate(1.1) contrast(1.02);
         }
         
         /* Enhanced Journal Cards */
         .ltn__team-item-3-2 {
-            transition: all 0.3s ease;
-            border-radius: 15px;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            background: white;
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.08),
+                0 4px 15px rgba(102, 126, 234, 0.06);
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            position: relative;
+        }
+        
+        .ltn__team-item-3-2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.03) 0%, rgba(118, 75, 162, 0.03) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .ltn__team-item-3-2:hover::before {
+            opacity: 1;
         }
         
         .ltn__team-item-3-2:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.12),
+                0 15px 35px rgba(102, 126, 234, 0.15),
+                0 8px 25px rgba(118, 75, 162, 0.08);
+            border-color: rgba(102, 126, 234, 0.2);
         }
         
         .ltn__team-item-3-2 .team-img {
             position: relative;
             overflow: hidden;
-            border-radius: 15px 15px 0 0;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .ltn__team-item-3-2 .team-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.02) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .ltn__team-item-3-2:hover .team-img::after {
+            opacity: 1;
         }
         
         .ltn__team-item-3-2 .team-info {
-            padding: 20px;
-            background: white;
-            border-radius: 0 0 15px 15px;
+            padding: 25px;
+            background: transparent;
+            border-radius: 0 0 20px 20px;
+            position: relative;
+            z-index: 2;
         }
         
         .ltn__team-item-3-2 .team-info h4 a {
@@ -99,6 +153,137 @@
             background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
             color: white;
             border: none;
+        }
+        
+        /* Enhanced Section Title */
+        .section-title-area {
+            position: relative;
+            margin-bottom: 70px;
+            padding: 40px 0;
+        }
+        
+        .section-title-area::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.08) 0%, rgba(118, 75, 162, 0.04) 50%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: subtlePulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes subtlePulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+        }
+        
+        .section-subtitle {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-subtitle::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+            transform: scaleX(0);
+            animation: expandLine 1s ease-out 0.5s forwards;
+        }
+        
+        @keyframes expandLine {
+            to { transform: scaleX(1); }
+        }
+        
+        .section-title {
+            background: linear-gradient(135deg, #2c3e50 0%, #667eea 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+            position: relative;
+        }
+        
+        /* Enhanced Filter Buttons */
+        .ltn__gallery-filter-menu button {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9ff 100%);
+            border: 2px solid rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin: 5px;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ltn__gallery-filter-menu button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s;
+        }
+        
+        .ltn__gallery-filter-menu button:hover::before {
+            left: 100%;
+        }
+        
+        .ltn__gallery-filter-menu button:hover,
+        .ltn__gallery-filter-menu button.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 
+                0 15px 35px rgba(102, 126, 234, 0.25),
+                0 8px 20px rgba(118, 75, 162, 0.15);
+        }
+        
+        /* Enhanced Team Area Background */
+        .ltn__team-area {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ltn__team-area::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(102, 126, 234, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(118, 75, 162, 0.03) 0%, transparent 50%);
+            animation: slowRotate 60s linear infinite;
+            z-index: -1;
+        }
+        
+        @keyframes slowRotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Gallery Grid Enhancement */
+        .ltn__gallery-active {
+            perspective: 1000px;
+        }
+        
+        .ltn__gallery-item {
+            transform-style: preserve-3d;
         }
     </style>
 </head>
