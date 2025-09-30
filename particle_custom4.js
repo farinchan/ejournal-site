@@ -38,13 +38,13 @@ if (window.particlesJS) {
                     "sync": false
                 }
             },
-            "line_linked": {
-                "enable": true,
-                "distance": 150,
-                "color": "#ffffff",
-                "opacity": 0.2,
-                "width": 1
-            },
+            // "line_linked": {
+            //     "enable": true,
+            //     "distance": 150,
+            //     "color": "#ffffff",
+            //     "opacity": 0.2,
+            //     "width": 1
+            // },
             "move": {
                 "enable": true,
                 "speed": 2,

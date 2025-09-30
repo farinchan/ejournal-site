@@ -1600,32 +1600,45 @@
                                 <nav>
                                     <div class="ltn__main-menu">
                                         <ul>
-                                            <li><a href="/">Home</a></li>
-                                            <li><a href="https://rumahjurnal.uinbukittinggi.ac.id/">Rumah Jurnal</a>
+                                            <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
+                                            <li><a href="https://rumahjurnal.uinbukittinggi.ac.id/"><i class="fas fa-university"></i> Rumah Jurnal</a></li>
+                                            <li><a href="#journal"><i class="fas fa-book"></i> All journal</a></li>
+                                            <li>
+                                                <a href="https://ejournal.uinbukittinggi.ac.id/index.php/index/search">
+                                                    <i class="fas fa-search"></i> Search
+                                                </a>
                                             </li>
-                                            <li><a href="#journal">All journal</a></li>
-                                            <li><a
-                                                    href="https://ejournal.uinbukittinggi.ac.id/index.php/index/search">Search</a>
-                                            </li>
-                                            <li><a href="https://rumahjurnal.uinbukittinggi.ac.id/contact">Contact</a>
+                                            <li>
+                                                <a href="https://rumahjurnal.uinbukittinggi.ac.id/contact">
+                                                    <i class="fas fa-envelope"></i> Contact
+                                                </a>
                                             </li>
                                             {if !$isUserLoggedIn}
-                                            <li><a href="{$baseUrl}/index.php/index/login">Login</a></li>
-                                            <li><a href="{$baseUrl}/index.php/index/user/register">Register</a></li>
+                                            <li>
+                                                <a href="{$baseUrl}/index.php/index/login">
+                                                    <i class="fas fa-sign-in-alt"></i> Login
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="{$baseUrl}/index.php/index/user/register">
+                                                    <i class="fas fa-user-plus"></i> Register
+                                                </a>
+                                            </li>
                                             {else}
                                             <li>
                                                 <a href="{$baseUrl}/index.php/index/submissions" class="dashboard-link">
-                                                    Dashboard
+                                                    <i class="fas fa-tachometer-alt"></i> Dashboard
                                                     {if $dashboardStats.unreadTasks > 0}
-                                                    <span
-                                                        class="badge badge-notification">{$dashboardStats.unreadTasks}</span>
+                                                    <span class="badge badge-notification">{$dashboardStats.unreadTasks}</span>
                                                     {/if}
                                                 </a>
                                             </li>
                                             {if $isAdmin}
-                                            <li><a href="{$baseUrl}/index.php/index/admin" class="admin-link">
+                                            <li>
+                                                <a href="{$baseUrl}/index.php/index/admin" class="admin-link">
                                                     <i class="fas fa-cog"></i> Administrator
-                                                </a></li>
+                                                </a>
+                                            </li>
                                             {/if}
                                             {/if}
                                         </ul>
@@ -1800,7 +1813,6 @@
         </div>
         <!-- Utilize Mobile Menu End -->
 
-        <div class="ltn__utilize-overlay"></div>\
 
         <!-- ENHANCED SEARCH AREA START -->
         <div class="enhanced-search-area">
@@ -1821,7 +1833,6 @@
                                     <form action="/index.php/index/search" method="get" class="enhanced-search-form">
                                         <div class="search-input-group">
                                             <div class="search-input-wrapper">
-                                                <i class="fas fa-search input-icon"></i>
                                                 <input type="text" name="query" class="search-input"
                                                     placeholder="Search by title, author, subject, or keywords..."
                                                     autocomplete="off">
@@ -1832,26 +1843,7 @@
                                                 <span>Search</span>
                                             </button>
                                         </div>
-                                        <div class="search-filters">
-                                            <div class="filter-group">
-                                                <label class="filter-label">
-                                                    <input type="radio" name="searchType" value="all" checked>
-                                                    <span class="filter-text">All Content</span>
-                                                </label>
-                                                <label class="filter-label">
-                                                    <input type="radio" name="searchType" value="articles">
-                                                    <span class="filter-text">Articles</span>
-                                                </label>
-                                                <label class="filter-label">
-                                                    <input type="radio" name="searchType" value="authors">
-                                                    <span class="filter-text">Authors</span>
-                                                </label>
-                                                <label class="filter-label">
-                                                    <input type="radio" name="searchType" value="journals">
-                                                    <span class="filter-text">Journals</span>
-                                                </label>
-                                            </div>
-                                        </div>
+
                                     </form>
                                 </div>
                                 <div class="search-stats">
@@ -1877,7 +1869,7 @@
         <!-- ENHANCED SEARCH AREA END -->
 
         <!-- HERO BANNER AREA START -->
-        <div class="hero-banner-area">
+        <!-- <div class="hero-banner-area">
             <div class="hero-background">
                 <div class="hero-overlay"></div>
                 <div class="hero-pattern"></div>
@@ -1954,7 +1946,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <!-- HERO BANNER AREA END -->
 
 
@@ -2325,7 +2317,7 @@
     <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/script_banner.js"></script>
     <script src="{$baseUrl}/plugins/themes/default/js/custom.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/particle_custom3.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/particle_custom4.js"></script>
     <!-- Enhanced Search Area Scripts -->
    
 
