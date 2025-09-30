@@ -27,7 +27,7 @@
     <!-- plugins css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/css/plugins.css">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/css/style2.css">
     <!-- Responsive css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/css/responsive.css">
     <!-- Modal Enhancement css -->
@@ -588,7 +588,7 @@
         /* Hero Banner Styles */
         .hero-banner-area {
             position: relative;
-            min-height: 100vh;
+            min-height: 80vh;
             display: flex;
             align-items: center;
             overflow: hidden;
@@ -601,8 +601,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            z-index: 0;
             opacity: 0.7;
+            pointer-events: none;
         }
 
         .hero-background {
@@ -626,6 +627,11 @@
                 radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.06) 0%, transparent 50%),
                 radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.04) 0%, transparent 30%);
             z-index: -1;
+        }
+
+        .hero-banner-area .container {
+            position: relative;
+            z-index: 5;
         }
 
         .hero-pattern {
@@ -665,6 +671,8 @@
             color: white;
             padding-right: 20px;
             animation: slideInLeft 1s ease-out;
+            position: relative;
+            z-index: 10;
         }
 
         @keyframes slideInLeft {
@@ -976,6 +984,7 @@
             position: relative;
             text-align: center;
             animation: slideInRight 1s ease-out 0.5s both;
+            z-index: 10;
         }
 
         @keyframes slideInRight {
@@ -1128,6 +1137,7 @@
             animation: bounceUpDown 2s infinite;
             cursor: pointer;
             transition: all 0.3s ease;
+            z-index: 10;
         }
 
         .hero-scroll-indicator:hover {
@@ -1335,8 +1345,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            z-index: 0;
             opacity: 0.6;
+            pointer-events: none;
         }
 
         .search-overlay {
@@ -1985,7 +1996,7 @@
                                     <div class="hero-search-input-group">
                                         <div class="hero-search-input-wrapper">
                                             <i class="fas fa-search hero-input-icon"></i>
-                                            <input type="text" name="query" class="hero-search-input" 
+                                            <input type="" name="query" class="hero-search-input" 
                                                    placeholder="Search articles, journals, authors..." 
                                                    autocomplete="off">
                                         </div>
@@ -2010,7 +2021,7 @@
                                     <div class="stat-label">Indexed Journals</div>
                                 </div>
                             </div>
-                            <div class="hero-actions">
+                            <!-- <div class="hero-actions">
                                 <a href="#journal" class="btn-hero-primary">
                                     <i class="fas fa-book-reader"></i>
                                     Browse Journals
@@ -2020,7 +2031,7 @@
                                     <i class="fas fa-search"></i>
                                     Search Articles
                                 </a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-6">

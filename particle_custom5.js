@@ -4,7 +4,7 @@
                 particlesJS('particles-js', {
                     "particles": {
                         "number": {
-                            "value": 100,
+                            "value": 80,
                             "density": {
                                 "enable": true,
                                 "value_area": 1000
@@ -21,7 +21,7 @@
                             }
                         },
                         "opacity": {
-                            "value": 0.4,
+                            "value": 0.3,
                             "random": true,
                             "anim": {
                                 "enable": true,
@@ -44,12 +44,12 @@
                             "enable": true,
                             "distance": 120,
                             "color": "#ffffff",
-                            "opacity": 0.3,
+                            "opacity": 0.2,
                             "width": 1
                         },
                         "move": {
                             "enable": true,
-                            "speed": 1.5,
+                            "speed": 1.2,
                             "direction": "none",
                             "random": true,
                             "straight": false,
@@ -63,14 +63,14 @@
                         }
                     },
                     "interactivity": {
-                        "detect_on": "canvas",
+                        "detect_on": "window",
                         "events": {
                             "onhover": {
-                                "enable": true,
+                                "enable": false,
                                 "mode": "grab"
                             },
                             "onclick": {
-                                "enable": true,
+                                "enable": false,
                                 "mode": "push"
                             },
                             "resize": true
@@ -103,6 +103,13 @@
                     },
                     "retina_detect": true
                 });
+                
+                // Ensure particles canvas doesn't interfere with interactions
+                const particlesCanvas = document.querySelector('#particles-js canvas');
+                if (particlesCanvas) {
+                    particlesCanvas.style.pointerEvents = 'none';
+                    particlesCanvas.style.zIndex = '0';
+                }
             }
 
             // Hero Statistics Counter Animation
