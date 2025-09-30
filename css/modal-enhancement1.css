@@ -21,8 +21,6 @@
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
     overflow: hidden;
     animation: modalSlideIn 0.3s ease-out;
-    z-index: 2000;
-    position: relative;
 }
 
 @keyframes modalSlideIn {
@@ -258,7 +256,6 @@
 .modal-backdrop.show {
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(3px);
-    z-index: 1999;
 }
 
 /* Responsive Design */

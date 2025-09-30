@@ -31,7 +31,7 @@
     <!-- Responsive css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/css/responsive.css">
     <!-- Modal Enhancement css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/css/modal-enhancement2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/css/modal-enhancement1.css">
 
     <style>
         /* Enhanced Journal Cards */
@@ -82,7 +82,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
+            background: linear-gradient(135deg, rgba(15, 74, 162, 0.6) 0%, rgba(42, 76, 93, 0.6) 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -273,8 +273,6 @@
         .ltn__gallery-active.row {
             --bs-gutter-x: 1.5rem;
             --bs-gutter-y: 1.5rem;
-            position: relative;
-            z-index: 10;
         }
 
         /* Section Title Enhancement */
@@ -1504,9 +1502,9 @@
         /* Enhanced Tab System Styles */
         .journal-tabs-container {
             margin-bottom: 40px;
+
             padding: 25px;
-            position: relative;
-            z-index: 100;
+
         }
 
         .main-tabs {
@@ -1568,8 +1566,6 @@
         .tab-content {
             display: none;
             animation: fadeInUp 0.5s ease-out;
-            position: relative;
-            z-index: 50;
         }
 
         .tab-content.active {
@@ -1638,8 +1634,6 @@
             gap: 15px;
             margin-bottom: 25px;
             flex-wrap: wrap;
-            position: relative;
-            z-index: 1000;
         }
 
         .filter-select-label {
@@ -1668,8 +1662,6 @@
             background-repeat: no-repeat;
             background-position: right 20px center;
             background-size: 12px;
-            position: relative;
-            z-index: 1001;
         }
 
         .filter-select:focus {
@@ -1678,33 +1670,23 @@
             background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(248, 249, 250, 1) 100%);
             box-shadow: 0 6px 20px rgba(15, 74, 162, 0.2);
             transform: translateY(-2px);
-            z-index: 1002;
+            z-index: 12;
         }
 
-        /* Fix for dropdown options appearing behind other elements */
         .filter-select option {
             padding: 10px;
-            background: white !important;
-            color: #2c3e50 !important;
+            background: white;
+            color: #2c3e50;
             font-weight: 500;
+              background: white !important;
+            color: #2c3e50 !important;
             position: relative;
-            z-index: 1003;
-        }
-
-        .filter-select option:checked {
-            background: linear-gradient(90deg, #0f4aa2, #0fa36b) !important;
-            color: white !important;
+            z-index: 13;
         }
 
         .filter-select option:hover {
-            background: rgba(15, 74, 162, 0.1) !important;
-            color: #0f4aa2 !important;
-        }
-
-        /* Custom dropdown fix for better layering */
-        .filter-select:focus,
-        .filter-select:active {
-            z-index: 9999 !important;
+            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
+            color: white;
         }
 
         /* Icon for select wrapper */
@@ -2404,13 +2386,12 @@
                         <button class="main-tab active" data-tab="accreditation">
                             <i class="fas fa-medal"></i> Accreditation
                         </button>
-                        <button class="main-tab" data-tab="faculty">
-                            <i class="fas fa-university"></i> By Faculty
-                        </button>
                         <button class="main-tab" data-tab="subject">
                             <i class="fas fa-book-open"></i> By Subject
                         </button>
-                        
+                        <button class="main-tab" data-tab="faculty">
+                            <i class="fas fa-university"></i> By Faculty
+                        </button>
                     </div>
 
                     <!-- Accreditation Tab Content -->
@@ -2492,16 +2473,16 @@
                         <div class="tab-subtitle">
                             Browse journals published by different faculties and departments
                         </div>
-                        <div class="filter-select-wrapper">
+                        <div class="filter-select-wrapper" style="z-index: 1000;">
                             <i class="fas fa-university select-icon"></i>
                             <label class="filter-select-label">Select Faculty:</label>
                             <select class="filter-select" id="faculty-filter" data-filter-type="faculty">
                                 <option data-filter="*" value="*" selected>All Faculties</option>
-                                <option data-filter=".pasca" value=".pascasarjana">Fakultas Pascasarjana</option>
-                                <option data-filter=".syariah" value=".syariah">Fakultas Syariah</option>
-                                <option data-filter=".ftik" value=".ftik">Fakultas Tarbiyah dan Ilmu Keguruan</option>
-                                <option data-filter=".febi" value=".febi">Fakultas Ekonomi dan Bisnis Islam</option>
-                                <option data-filter=".fuad" value=".fuad">Fakultas Ushuluddin Adab dan Dakwah</option>
+                                <option data-filter=".pascasarjana" value=".pascasarjana">Pascasarjana</option>
+                                <option data-filter=".syariah" value=".syariah">Syariah</option>
+                                <option data-filter=".ftik" value=".ftik">Tarbiyah dan Ilmu Keguruan</option>
+                                <option data-filter=".febi" value=".febi">Ekonomi dan Bisnis Islam</option>
+                                <option data-filter=".fuad" value=".fuad">Ushuluddin Adab dan Dakwah</option>
                             </select>
                         </div>
                     </div>
@@ -2883,6 +2864,7 @@
                 });
             });
 
+       
         });
     </script>
     <!-- Enhanced Search Area Scripts -->
