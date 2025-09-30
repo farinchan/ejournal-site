@@ -315,13 +315,22 @@
         var $ltnGalleryActive = $('.ltn__gallery-active'),
             $ltnGalleryFilterMenu = $('.ltn__gallery-filter-menu');
         /*Filter*/
-        $ltnGalleryFilterMenu.on( 'click', 'button, a', function() {
+
+        $ltnGalleryFilterMenu.on('click', 'button, a', function() {
             var $this = $(this),
-                $filterValue = $this.attr('data-filter');
+            $filterValue = $this.attr('data-filter');
             $ltnGalleryFilterMenu.find('button, a').removeClass('active');
             $this.addClass('active');
             $ltnGalleryActive.isotope({ filter: $filterValue });
         });
+
+        // Support filter with <select>
+        $ltnGalleryFilterMenu.on('change', 'select', function() {
+            var $this = $(this),
+            $filterValue = $this.val();
+            $ltnGalleryActive.isotope({ filter: $filterValue });
+        });
+
         /*Grid*/
         $ltnGalleryActive.each(function(){
             var $this = $(this),

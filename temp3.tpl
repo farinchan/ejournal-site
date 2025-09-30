@@ -82,7 +82,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
+            background: linear-gradient(135deg, rgba(15, 74, 162, 0.6) 0%, rgba(42, 76, 93, 0.6) 100%);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -588,11 +588,22 @@
         /* Hero Banner Styles */
         .hero-banner-area {
             position: relative;
-            min-height: 100vh;
+            min-height: 85vh;
             display: flex;
             align-items: center;
             overflow: hidden;
             background: linear-gradient(90deg, #0f4aa2, #0fa36b);
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.7;
+            pointer-events: none;
         }
 
         .hero-background {
@@ -618,6 +629,11 @@
             z-index: -1;
         }
 
+        .hero-banner-area .container {
+            position: relative;
+            z-index: 5;
+        }
+
         .hero-pattern {
             position: absolute;
             top: 0;
@@ -633,20 +649,15 @@
         }
 
         @keyframes floatPattern {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0px) translateX(0px);
             }
-
             25% {
                 transform: translateY(-10px) translateX(5px);
             }
-
             50% {
                 transform: translateY(-5px) translateX(-10px);
             }
-
             75% {
                 transform: translateY(-15px) translateX(5px);
             }
@@ -660,6 +671,8 @@
             color: white;
             padding-right: 20px;
             animation: slideInLeft 1s ease-out;
+            position: relative;
+            z-index: 10;
         }
 
         @keyframes slideInLeft {
@@ -667,7 +680,6 @@
                 opacity: 0;
                 transform: translateX(-50px);
             }
-
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -723,12 +735,9 @@
         }
 
         @keyframes shimmer {
-
-            0%,
-            100% {
+            0%, 100% {
                 background-position: 0% 50%;
             }
-
             50% {
                 background-position: 100% 50%;
             }
@@ -737,11 +746,96 @@
         .hero-description {
             font-size: 1.15rem;
             line-height: 1.8;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             color: rgba(255, 255, 255, 0.9);
             max-width: 95%;
             font-weight: 400;
             animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        /* Hero Search Integration */
+        .hero-search-section {
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .hero-search-form {
+            max-width: 600px;
+        }
+
+        .hero-search-input-group {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50px;
+            padding: 8px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .hero-search-input-group:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .hero-search-input-wrapper {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-input-icon {
+            position: absolute;
+            left: 20px;
+            color: rgba(15, 74, 162, 0.6);
+            font-size: 1.1rem;
+            z-index: 2;
+        }
+
+        .hero-search-input {
+            width: 100%;
+            height: 50px;
+            padding: 0 20px 0 50px;
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            color: #2c3e50;
+            outline: none;
+            font-weight: 500;
+        }
+
+        .hero-search-input::placeholder {
+            color: rgba(15, 74, 162, 0.6);
+            font-weight: 400;
+        }
+
+        .hero-search-btn {
+            height: 50px;
+            padding: 0 25px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
+            color: white;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            min-width: 120px;
+            justify-content: center;
+        }
+
+        .hero-search-btn:hover {
+            background: linear-gradient(90deg, #0e4291, #0e925a);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(15, 74, 162, 0.3);
         }
 
         .hero-stats {
@@ -890,6 +984,7 @@
             position: relative;
             text-align: center;
             animation: slideInRight 1s ease-out 0.5s both;
+            z-index: 10;
         }
 
         @keyframes slideInRight {
@@ -897,7 +992,6 @@
                 opacity: 0;
                 transform: translateX(50px);
             }
-
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -911,20 +1005,15 @@
         }
 
         @keyframes heroFloat {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0px) rotate(0deg);
             }
-
             25% {
                 transform: translateY(-15px) rotate(1deg);
             }
-
             50% {
                 transform: translateY(-25px) rotate(0deg);
             }
-
             75% {
                 transform: translateY(-10px) rotate(-1deg);
             }
@@ -983,60 +1072,45 @@
         }
 
         @keyframes floatElement1 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             25% {
                 transform: translate(15px, -20px) rotate(5deg);
             }
-
             50% {
                 transform: translate(5px, -10px) rotate(-3deg);
             }
-
             75% {
                 transform: translate(-10px, -25px) rotate(2deg);
             }
         }
 
         @keyframes floatElement2 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             25% {
                 transform: translate(-12px, 18px) rotate(-4deg);
             }
-
             50% {
                 transform: translate(-20px, 5px) rotate(6deg);
             }
-
             75% {
                 transform: translate(-5px, 25px) rotate(-2deg);
             }
         }
 
         @keyframes floatElement3 {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translate(0, 0) rotate(0deg);
             }
-
             25% {
                 transform: translate(20px, -15px) rotate(3deg);
             }
-
             50% {
                 transform: translate(10px, -25px) rotate(-5deg);
             }
-
             75% {
                 transform: translate(25px, -5px) rotate(4deg);
             }
@@ -1047,7 +1121,6 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -1064,6 +1137,7 @@
             animation: bounceUpDown 2s infinite;
             cursor: pointer;
             transition: all 0.3s ease;
+            z-index: 10;
         }
 
         .hero-scroll-indicator:hover {
@@ -1072,19 +1146,12 @@
         }
 
         @keyframes bounceUpDown {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
+            0%, 20%, 50%, 80%, 100% {
                 transform: translateX(-50%) translateY(0);
             }
-
             40% {
                 transform: translateX(-50%) translateY(-15px);
             }
-
             60% {
                 transform: translateX(-50%) translateY(-8px);
             }
@@ -1105,12 +1172,9 @@
         }
 
         @keyframes arrowBounce {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0);
             }
-
             50% {
                 transform: translateY(5px);
             }
@@ -1139,6 +1203,26 @@
 
             .hero-description {
                 max-width: 100%;
+                margin-bottom: 25px;
+            }
+
+            .hero-search-input-group {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+                border-radius: 25px;
+            }
+
+            .hero-search-input {
+                height: 45px;
+                text-align: center;
+                padding: 0 50px;
+            }
+
+            .hero-search-btn {
+                width: 100%;
+                height: 45px;
+                border-radius: 22px;
             }
 
             .hero-stats {
@@ -1163,7 +1247,31 @@
 
             .hero-description {
                 font-size: 1rem;
-                margin-bottom: 25px;
+                margin-bottom: 20px;
+            }
+
+            .hero-search-section {
+                margin-bottom: 30px;
+            }
+
+            .hero-search-input-group {
+                padding: 12px;
+            }
+
+            .hero-search-input {
+                height: 40px;
+                font-size: 0.9rem;
+            }
+
+            .hero-input-icon {
+                left: 15px;
+                font-size: 1rem;
+            }
+
+            .hero-search-btn {
+                height: 40px;
+                font-size: 0.85rem;
+                min-width: 100px;
             }
 
             .hero-stats {
@@ -1237,8 +1345,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            z-index: 0;
             opacity: 0.6;
+            pointer-events: none;
         }
 
         .search-overlay {
@@ -1499,453 +1608,6 @@
             display: none;
         }
 
-        /* Enhanced Tab System Styles */
-        .journal-tabs-container {
-            margin-bottom: 40px;
-
-            padding: 25px;
-
-        }
-
-        .main-tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 30px;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .main-tab {
-            padding: 15px 30px;
-            border: none;
-            background: rgba(15, 74, 162, 0.1);
-            color: #0f4aa2;
-            border-radius: 25px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(15, 74, 162, 0.1);
-        }
-
-        .main-tab::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s ease;
-        }
-
-        .main-tab:hover::before {
-            left: 100%;
-        }
-
-        .main-tab:hover {
-            background: linear-gradient(135deg, rgba(15, 74, 162, 0.15) 0%, rgba(15, 163, 107, 0.15) 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(15, 74, 162, 0.2);
-        }
-
-        .main-tab.active {
-            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
-            color: white;
-            box-shadow: 0 8px 25px rgba(15, 74, 162, 0.3);
-            transform: translateY(-3px);
-        }
-
-        .main-tab.active::before {
-            display: none;
-        }
-
-        .tab-content {
-            display: none;
-            animation: fadeInUp 0.5s ease-out;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .tab-subtitle {
-            text-align: center;
-            color: #666;
-            font-size: 1rem;
-            margin-bottom: 25px;
-            font-weight: 500;
-        }
-
-        .sub-filter-menu {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .sub-filter-btn {
-            padding: 10px 20px;
-            border: 1px solid rgba(15, 74, 162, 0.2);
-            background: rgba(15, 74, 162, 0.05);
-            color: #0f4aa2;
-            border-radius: 20px;
-            font-weight: 500;
-            font-size: 0.9rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: capitalize;
-        }
-
-        .sub-filter-btn:hover {
-            background: rgba(15, 74, 162, 0.1);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(15, 74, 162, 0.15);
-        }
-
-        .sub-filter-btn.active {
-            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
-            color: white;
-            border-color: #0f4aa2;
-            box-shadow: 0 4px 15px rgba(15, 74, 162, 0.25);
-        }
-
-        /* Subject and Faculty Select Styles */
-        .filter-select-wrapper {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        .filter-select-label {
-            font-weight: 600;
-            color: #0f4aa2;
-            font-size: 1rem;
-            margin-bottom: 0;
-        }
-
-        .filter-select {
-            min-width: 300px;
-            height: 50px;
-            padding: 0 20px;
-            border: 2px solid rgba(15, 74, 162, 0.2);
-            border-radius: 25px;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.95) 100%);
-            color: #2c3e50;
-            font-size: 1rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(15, 74, 162, 0.1);
-            appearance: none;
-            background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%230f4aa2" d="M2 0L0 2h4zM2 5L0 3h4z"/></svg>');
-            background-repeat: no-repeat;
-            background-position: right 20px center;
-            background-size: 12px;
-        }
-
-        .filter-select:focus {
-            outline: none;
-            border-color: #0f4aa2;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, rgba(248, 249, 250, 1) 100%);
-            box-shadow: 0 6px 20px rgba(15, 74, 162, 0.2);
-            transform: translateY(-2px);
-        }
-
-        .filter-select option {
-            padding: 10px;
-            background: white;
-            color: #2c3e50;
-            font-weight: 500;
-        }
-
-        .filter-select option:hover {
-            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
-            color: white;
-        }
-
-        /* Icon for select wrapper */
-        .select-icon {
-            font-size: 1.5rem;
-            color: #0f4aa2;
-            margin-right: 10px;
-        }
-
-        /* Enhanced styling for mobile */
-        @media (max-width: 767px) {
-            .filter-select-wrapper {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .filter-select {
-                min-width: 100%;
-                max-width: 100%;
-            }
-
-            .filter-select-label {
-                text-align: center;
-                margin-bottom: 8px;
-            }
-        }
-
-        /* Subject Categories */
-        .subject-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .subject-card {
-            background: linear-gradient(135deg, rgba(15, 74, 162, 0.05) 0%, rgba(15, 163, 107, 0.05) 100%);
-            border: 2px solid rgba(15, 74, 162, 0.1);
-            border-radius: 15px;
-            padding: 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .subject-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(15, 74, 162, 0.1) 0%, rgba(15, 163, 107, 0.1) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .subject-card:hover::before {
-            opacity: 1;
-        }
-
-        .subject-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(15, 74, 162, 0.15);
-            border-color: rgba(15, 74, 162, 0.3);
-        }
-
-        .subject-card.active {
-            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
-            color: white;
-            border-color: #0f4aa2;
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(15, 74, 162, 0.3);
-        }
-
-        .subject-icon {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: #0f4aa2;
-        }
-
-        .subject-card.active .subject-icon {
-            color: white;
-        }
-
-        .subject-name {
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 5px;
-        }
-
-        .subject-count {
-            font-size: 0.8rem;
-            opacity: 0.7;
-        }
-
-        /* Faculty Cards */
-        .faculty-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 25px;
-        }
-
-        .faculty-card {
-            background: white;
-            border: 2px solid rgba(15, 74, 162, 0.1);
-            border-radius: 20px;
-            padding: 25px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(15, 74, 162, 0.08);
-        }
-
-        .faculty-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(15, 74, 162, 0.05) 0%, rgba(15, 163, 107, 0.05) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .faculty-card:hover::before {
-            opacity: 1;
-        }
-
-        .faculty-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(15, 74, 162, 0.15);
-            border-color: rgba(15, 74, 162, 0.3);
-        }
-
-        .faculty-card.active {
-            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
-            color: white;
-            border-color: #0f4aa2;
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(15, 74, 162, 0.3);
-        }
-
-        .faculty-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: #0f4aa2;
-        }
-
-        .faculty-card.active .faculty-icon {
-            color: white;
-        }
-
-        .faculty-name {
-            font-weight: 700;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .faculty-journals {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            margin-bottom: 10px;
-        }
-
-        .faculty-description {
-            font-size: 0.8rem;
-            opacity: 0.7;
-            line-height: 1.4;
-        }
-
-        /* Responsive Design for Tabs */
-        @media (max-width: 991px) {
-            .journal-tabs-container {
-                padding: 20px;
-                margin-bottom: 30px;
-            }
-
-            .main-tab {
-                padding: 12px 20px;
-                font-size: 0.9rem;
-            }
-
-            .subject-categories {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-                gap: 10px;
-            }
-
-            .faculty-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 15px;
-            }
-
-            .faculty-card {
-                padding: 20px;
-            }
-
-            .faculty-icon {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .journal-tabs-container {
-                padding: 15px;
-                margin-bottom: 25px;
-            }
-
-            .main-tabs {
-                flex-direction: column;
-                align-items: center;
-                gap: 8px;
-            }
-
-            .main-tab {
-                padding: 10px 18px;
-                font-size: 0.85rem;
-                width: 100%;
-                max-width: 250px;
-            }
-
-            .subject-categories {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 8px;
-            }
-
-            .subject-card {
-                padding: 15px;
-            }
-
-            .subject-icon {
-                font-size: 1.5rem;
-            }
-
-            .faculty-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .faculty-card {
-                padding: 20px;
-            }
-
-            .faculty-icon {
-                font-size: 2rem;
-            }
-
-            .sub-filter-menu {
-                gap: 8px;
-            }
-
-            .sub-filter-btn {
-                padding: 8px 15px;
-                font-size: 0.8rem;
-            }
-        }
-
         /* Responsive Design for Search */
         @media (max-width: 991px) {
             .enhanced-search-area {
@@ -2089,8 +1751,7 @@
                                     <div class="ltn__main-menu">
                                         <ul>
                                             <li><a href="/"><i class="fas fa-home"></i> Home</a></li>
-                                            <li><a href="https://rumahjurnal.uinbukittinggi.ac.id/"><i
-                                                        class="fas fa-university"></i> Rumah Jurnal</a></li>
+                                            <li><a href="https://rumahjurnal.uinbukittinggi.ac.id/"><i class="fas fa-university"></i> Rumah Jurnal</a></li>
                                             <li><a href="#journal"><i class="fas fa-book"></i> All journal</a></li>
                                             <li>
                                                 <a href="https://ejournal.uinbukittinggi.ac.id/index.php/index/search">
@@ -2118,8 +1779,7 @@
                                                 <a href="{$baseUrl}/index.php/index/submissions" class="dashboard-link">
                                                     <i class="fas fa-tachometer-alt"></i> Dashboard
                                                     {if $dashboardStats.unreadTasks > 0}
-                                                    <span
-                                                        class="badge badge-notification">{$dashboardStats.unreadTasks}</span>
+                                                    <span class="badge badge-notification">{$dashboardStats.unreadTasks}</span>
                                                     {/if}
                                                 </a>
                                             </li>
@@ -2304,59 +1964,105 @@
         <!-- Utilize Mobile Menu End -->
 
 
-        <!-- ENHANCED SEARCH AREA START -->
-        <div class="enhanced-search-area">
+        <!-- HERO BANNER AREA START -->
+        <div class="hero-banner-area">
             <div id="particles-js"></div>
-            <div class="search-overlay"></div>
-            <div class="search-container">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8 col-md-10">
-                            <div class="search-content text-center">
-                                <div class="search-header">
-                                    <i class="fas fa-search search-icon"></i>
-                                    <h2 class="search-title">Search Academic Resources</h2>
-                                    <p class="search-subtitle">Discover thousands of academic articles, journals, and
-                                        research papers</p>
-                                </div>
-                                <div class="search-form-wrapper">
-                                    <form action="/index.php/index/search" method="get" class="enhanced-search-form">
-                                        <div class="search-input-group">
-                                            <div class="search-input-wrapper">
-                                                <input type="text" name="query" class="search-input"
-                                                    placeholder="Search by title, author, subject, or keywords..."
-                                                    autocomplete="off">
-                                                <div class="search-suggestions" id="searchSuggestions"></div>
-                                            </div>
-                                            <button type="submit" class="search-btn">
-                                                <i class="fas fa-arrow-right"></i>
-                                                <span>Search</span>
-                                            </button>
-                                        </div>
+            <div class="hero-background">
+                <div class="hero-overlay"></div>
+                <div class="hero-pattern"></div>
+            </div>
+            <div class="container">
+                <div class="row align-items-center min-vh-70">
+                    <div class="col-lg-7 col-md-6">
+                        <div class="hero-content">
+                            <div class="hero-subtitle">
+                                <span class="badge hero-badge">
+                                    <i class="fas fa-graduation-cap"></i>
+                                    Rumah Jurnal UIN Sjech M. Djamil Djambek Bukittinggi
+                                </span>
+                            </div>
+                            <h1 class="hero-title">
+                                Welcome to <span class="highlight">E-Journal</span><br>
+                                UIN Sjech M. Djamil Djambek Bukittinggi
+                            </h1>
+                            <p class="hero-description">
+                                The official scientific publication portal providing open access to high-quality
+                                journals in Islamic studies, science, technology, and humanities.
+                            </p>
 
-                                    </form>
+                            <!-- Enhanced Search Form Integration -->
+                            <div class="hero-search-section">
+                                <form action="/index.php/index/search" method="get" class="hero-search-form">
+                                    <div class="hero-search-input-group">
+                                        <div class="hero-search-input-wrapper">
+                                            <i class="fas fa-search hero-input-icon"></i>
+                                            <input type="" name="query" class="hero-search-input" 
+                                                   placeholder="Search articles, journals, authors..." 
+                                                   autocomplete="off">
+                                        </div>
+                                        <button type="submit" class="hero-search-btn">
+                                            <i class="fas fa-search"></i>
+                                            <span>Search</span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="hero-stats">
+                                <div class="stat-item">
+                                    <div class="stat-number" data-count="25">0</div>
+                                    <div class="stat-label">Active Journals</div>
                                 </div>
-                                <div class="search-stats">
-                                    <div class="stat-item">
-                                        <span class="stat-number">500+</span>
-                                        <span class="stat-label">Articles</span>
-                                    </div>
-                                    <div class="stat-item">
-                                        <span class="stat-number">25+</span>
-                                        <span class="stat-label">Journals</span>
-                                    </div>
-                                    <div class="stat-item">
-                                        <span class="stat-number">100+</span>
-                                        <span class="stat-label">Authors</span>
-                                    </div>
+                                <div class="stat-item">
+                                    <div class="stat-number" data-count="500">0</div>
+                                    <div class="stat-label">Published Articles</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-number" data-count="15">0</div>
+                                    <div class="stat-label">Indexed Journals</div>
+                                </div>
+                            </div>
+                            <!-- <div class="hero-actions">
+                                <a href="#journal" class="btn-hero-primary">
+                                    <i class="fas fa-book-reader"></i>
+                                    Browse Journals
+                                </a>
+                                <a href="https://ejournal.uinbukittinggi.ac.id/index.php/index/search"
+                                    class="btn-hero-secondary">
+                                    <i class="fas fa-search"></i>
+                                    Search Articles
+                                </a>
+                            </div> -->
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-6">
+                        <div class="hero-image">
+                            <div class="hero-image-wrapper">
+                                <img src="https://res.cloudinary.com/duuawbwih/image/upload/v1747042342/Desain_tanpa_judul_1_nr0kdz.png"
+                                    alt="Academic Publications" class="img-fluid hero-main-image">
+                                <div class="floating-element element-1">
+                                    <i class="fas fa-book"></i>
+                                </div>
+                                <div class="floating-element element-2">
+                                    <i class="fas fa-microscope"></i>
+                                </div>
+                                <div class="floating-element element-3">
+                                    <i class="fas fa-globe"></i>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="hero-scroll-indicator">
+                <div class="scroll-down">
+                    <span>Scroll Down</span>
+                    <div class="scroll-arrow">
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- ENHANCED SEARCH AREA END -->
+        <!-- HERO BANNER AREA END -->
 
 
 
@@ -2373,117 +2079,28 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- ENHANCED TAB SYSTEM START -->
-                <div class="journal-tabs-container">
-                    <!-- Main Navigation Tabs -->
-                    <div class="main-tabs">
-                        <button class="main-tab active" data-tab="accreditation">
-                            <i class="fas fa-medal"></i> Accreditation
-                        </button>
-                        <button class="main-tab" data-tab="subject">
-                            <i class="fas fa-book-open"></i> By Subject
-                        </button>
-                        <button class="main-tab" data-tab="faculty">
-                            <i class="fas fa-university"></i> By Faculty
-                        </button>
-                    </div>
-
-                    <!-- Accreditation Tab Content -->
-                    <div class="tab-content active" id="accreditation-tab">
-                        <div class="tab-subtitle">
-                            Browse journals by their accreditation and indexing status
-                        </div>
-                        <div class="sub-filter-menu">
-
-                            <button class="sub-filter-btn active" data-filter="*">All Journals</button>
-                            <button class="sub-filter-btn" data-filter=".SCOPUS">Scopus</button>
-                            <button class="sub-filter-btn" data-filter=".SINTA-1">Sinta 1</button>
-                            <button class="sub-filter-btn" data-filter=".SINTA-2">Sinta 2</button>
-                            <button class="sub-filter-btn" data-filter=".SINTA-3">Sinta 3</button>
-                            <button class="sub-filter-btn" data-filter=".SINTA-4">Sinta 4</button>
-                            <button class="sub-filter-btn" data-filter=".SINTA-5">Sinta 5</button>
-                            <button class="sub-filter-btn" data-filter=".SINTA-6">Sinta 6</button>
-                            <button class="sub-filter-btn" data-filter=".WOS">WOS</button>
-                            <button class="sub-filter-btn" data-filter=".DOAJ">DOAJ</button>
-                            <button class="sub-filter-btn" data-filter=".EBSCO">EBSCO</button>
-                            <button class="sub-filter-btn" data-filter=".COPERNICUS">COPERNICUS</button>
-                            <button class="sub-filter-btn" data-filter=".MORAREF">MORAREF</button>
-                            <button class="sub-filter-btn" data-filter=".GARUDA">GARUDA</button>
-                        </div>
-                    </div>
-
-                    <!-- Subject Tab Content -->
-                    <div class="tab-content" id="subject-tab">
-                        <div class="tab-subtitle">
-                            Explore journals organized by academic disciplines and research areas
-                        </div>
-                        <div class="filter-select-wrapper">
-                            <i class="fas fa-book-open select-icon"></i>
-                            <label class="filter-select-label">Select Subject:</label>
-                            <select class="filter-select" id="subject-filter" data-filter-type="subject">
-                                <option data-filter="*" value="*" selected>All Subjects</option>
-                                <option data-filter=".101" value=".101">Hukum Islam - S2</option>
-                                <option data-filter=".102" value=".102">Manajemen Pendidikan Islam - S2</option>
-                                <option data-filter=".103" value=".103">Ilmu Syariah - S3</option>
-                                <option data-filter=".11" value=".11">Hukum Keluarga Islam (Ahwal Syakhshiyyah) - S1</option>
-                                <option data-filter=".12" value=".12">Hukum Ekonomi Syariah (Muamalah) - S1</option>
-                                <option data-filter=".13" value=".13">Hukum Tatanegara (siyasah) - S1</option>
-                                <option data-filter=".14" value=".14">Hukum Pidana Islam (Jinayah) - S1</option>
-                                <option data-filter=".201" value=".201">Pendidikan Agama Islam - S2</option>
-                                <option data-filter=".202" value=".202">Tadris Bahasa Inggris - S2</option>
-                                <option data-filter=".21" value=".21">Pendidikan Agama Islam - S1</option>
-                                <option data-filter=".211" value=".211">Pendidikan Profesi Guru (PPG) - PROFESI</option>
-                                <option data-filter=".22" value=".22">Pendidikan Bahasa Arab - S1</option>
-                                <option data-filter=".23" value=".23">Pendidikan Bahasa Inggris - S1</option>
-                                <option data-filter=".24" value=".24">Pendidikan Matematika - S1</option>
-                                <option data-filter=".25" value=".25">Pendidikan Teknik Informatika Dan Komputer - S1</option>
-                                <option data-filter=".26" value=".26">Bimbingan dan Konseling - S1</option>
-                                <option data-filter=".27" value=".27">Matematika - S1</option>
-                                <option data-filter=".28" value=".28">Statistika - S1</option>
-                                <option data-filter=".29" value=".29">Informatika - S1</option>
-                                <option data-filter=".301" value=".301">Ekonomi Syariah - S2</option>
-                                <option data-filter=".31" value=".31">Perbankan Syariah D3 - D3</option>
-                                <option data-filter=".32" value=".32">Ekonomi Islam - S1</option>
-                                <option data-filter=".321" value=".321">Pendidikan Agama Islam - S3</option>
-                                <option data-filter=".33" value=".33">Perbankan Syariah - S1</option>
-                                <option data-filter=".34" value=".34">Akuntansi Syariah - S1</option>
-                                <option data-filter=".35" value=".35">Pariwisata Syariah - S1</option>
-                                <option data-filter=".36" value=".36">Manajemen Haji dan Umrah - S1</option>
-                                <option data-filter=".37" value=".37">Manajemen Bisnis Syariah - S1</option>
-                                <option data-filter=".38" value=".38">Bisnis Digital - S1</option>
-                                <option data-filter=".401" value=".401">Aqidah dan Filsafat Islam - S2</option>
-                                <option data-filter=".41" value=".41">Ilmu Al Qur'an dan Tafsir - S1</option>
-                                <option data-filter=".42" value=".42">Ilmu Hadis - S1</option>
-                                <option data-filter=".43" value=".43">Komunikasi dan Penyiaran Islam - S1</option>
-                                <option data-filter=".44" value=".44">Sejarah Peradaban Islam - S1</option>
-                                <option data-filter=".45" value=".45">Aqidah dan Filsafat Islam - S1</option>
-                                <option data-filter=".46" value=".46">Sosiologi Agama - S1</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Faculty Tab Content -->
-                    <div class="tab-content" id="faculty-tab">
-                        <div class="tab-subtitle">
-                            Browse journals published by different faculties and departments
-                        </div>
-                        <div class="filter-select-wrapper" style="z-index: 1000;">
-                            <i class="fas fa-university select-icon"></i>
-                            <label class="filter-select-label">Select Faculty:</label>
-                            <select class="filter-select" id="faculty-filter" data-filter-type="faculty">
-                                <option data-filter="*" value="*" selected>All Faculties</option>
-                                <option data-filter=".pascasarjana" value=".pascasarjana">Pascasarjana</option>
-                                <option data-filter=".syariah" value=".syariah">Syariah</option>
-                                <option data-filter=".ftik" value=".ftik">Tarbiyah dan Ilmu Keguruan</option>
-                                <option data-filter=".febi" value=".febi">Ekonomi dan Bisnis Islam</option>
-                                <option data-filter=".fuad" value=".fuad">Ushuluddin Adab dan Dakwah</option>
-                            </select>
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="ltn__gallery-menu text-center">
+                            <div class="ltn__gallery-filter-menu portfolio-filter text-uppercase mb-50 d-inline-block">
+                                <button data-filter="*" class="active">all</button>
+                                <button data-filter=".SCOPUS">Scopus</button>
+                                <button data-filter=".SINTA-1">Sinta 1</button>
+                                <button data-filter=".SINTA-2">Sinta 2</button>
+                                <button data-filter=".SINTA-3">Sinta 3</button>
+                                <button data-filter=".SINTA-4">Sinta 4</button>
+                                <button data-filter=".SINTA-5">Sinta 5</button>
+                                <button data-filter=".SINTA-6">Sinta 6</button>
+                                <button data-filter=".WOS">Wos</button>
+                                <button data-filter=".DOAJ">DOAJ</button>
+                                <button data-filter=".EBSCO">EBSCO</button>
+                                <button data-filter=".COPERNICUS">COPERNICUS</button>
+                                <button data-filter=".MORAREF">MORAREF</button>
+                                <button data-filter=".GARUDA">GARUDA</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- ENHANCED TAB SYSTEM END -->
-
                 <!--Portfolio Wrapper Start-->
                 {if !$journals|@count}
                 {translate key="site.noJournals"}
@@ -2807,7 +2424,7 @@
     <!-- All JS Plugins -->
     <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/js/plugins.js"></script>
     <!-- Main JS -->
-    <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/js/main1.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/js/main.js"></script>
     <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <!-- Particles App -->
@@ -2816,91 +2433,8 @@
     <script src="{$baseUrl}/plugins/themes/default/js/custom.js"></script>
 
     <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/particle_custom5.js"></script>
-
-    <!-- Enhanced Tab System Scripts -->
-    <script>
-        // Tab System Functionality
-        document.addEventListener('DOMContentLoaded', function () {
-            // Main tab switching
-            const mainTabs = document.querySelectorAll('.main-tab');
-            const tabContents = document.querySelectorAll('.tab-content');
-
-            mainTabs.forEach(tab => {
-                tab.addEventListener('click', function () {
-                    // Remove active class from all tabs and contents
-                    mainTabs.forEach(t => t.classList.remove('active'));
-                    tabContents.forEach(content => content.classList.remove('active'));
-
-                    // Add active class to clicked tab
-                    this.classList.add('active');
-
-                    // Show corresponding content
-                    const targetTab = this.getAttribute('data-tab');
-                    document.getElementById(targetTab + '-tab').classList.add('active');
-                });
-            });
-
-            // Sub-filter functionality
-            const subFilterBtns = document.querySelectorAll('.sub-filter-btn');
-            subFilterBtns.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    // Remove active class from sibling buttons
-                    const siblings = this.parentNode.querySelectorAll('.sub-filter-btn');
-                    siblings.forEach(sibling => sibling.classList.remove('active'));
-
-                    // Add active class to clicked button
-                    this.classList.add('active');
-
-                    // Filter journals (integrate with existing portfolio filter)
-                    const filterValue = this.getAttribute('data-filter');
-                    if (typeof $ !== 'undefined' && $('.ltn__gallery-active').length) {
-                        $('.ltn__gallery-active').isotope({ filter: filterValue });
-                    }
-                });
-            });
-
-            // Subject select functionality
-            const subjectSelect = document.getElementById('subject-filter');
-            if (subjectSelect) {
-                subjectSelect.addEventListener('change', function () {
-                    const filterValue = this.value;
-                    if (typeof $ !== 'undefined' && $('.ltn__gallery-active').length) {
-                        $('.ltn__gallery-active').isotope({ filter: filterValue });
-                    }
-                });
-            }
-
-            // Faculty select functionality
-            const facultySelect = document.getElementById('faculty-filter');
-            if (facultySelect) {
-                facultySelect.addEventListener('change', function () {
-                    const filterValue = this.value;
-                    if (typeof $ !== 'undefined' && $('.ltn__gallery-active').length) {
-                        $('.ltn__gallery-active').isotope({ filter: filterValue });
-                    }
-                });
-            }
-
-            // Integration with existing portfolio filter buttons
-            const existingFilterBtns = document.querySelectorAll('.ltn__gallery-filter-menu button');
-            existingFilterBtns.forEach(btn => {
-                btn.addEventListener('click', function () {
-                    // Reset all tab filters when existing buttons are clicked
-                    subFilterBtns.forEach(sfBtn => sfBtn.classList.remove('active'));
-
-                    // Reset select dropdowns to "All" option
-                    if (subjectSelect) subjectSelect.value = '*';
-                    if (facultySelect) facultySelect.value = '*';
-
-                    // Activate "All" option in sub-filters
-                    const activeSubFilter = document.querySelector('.sub-filter-btn[data-filter="*"]');
-                    if (activeSubFilter) activeSubFilter.classList.add('active');
-                });
-            });
-        });
-    </script>
     <!-- Enhanced Search Area Scripts -->
-
+ 
 
 
 </body>

@@ -27,7 +27,7 @@
     <!-- plugins css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/css/plugins.css">
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/css/style2.css">
     <!-- Responsive css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/css/responsive.css">
     <!-- Modal Enhancement css -->
@@ -38,17 +38,17 @@
         .journal-card {
             background: #fff;
             border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(11, 44, 61, 0.08);
+            box-shadow: 0 4px 20px rgba(15, 74, 162, 0.08);
             overflow: hidden;
             transition: all 0.3s ease;
-            border: 1px solid rgba(11, 44, 61, 0.1);
+            border: 1px solid rgba(15, 74, 162, 0.1);
             display: flex;
             flex-direction: column;
         }
 
         .journal-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(11, 44, 61, 0.15);
+            box-shadow: 0 12px 40px rgba(15, 74, 162, 0.15);
         }
 
         .journal-image-container {
@@ -82,7 +82,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(11, 44, 61, 0.8) 0%, rgba(42, 76, 93, 0.8) 100%);
+            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -137,7 +137,7 @@
         }
 
         .journal-title a:hover {
-            color: #0B2C3D;
+            color: #0f4aa2;
             text-decoration: none;
         }
 
@@ -155,7 +155,7 @@
             padding: 4px 8px;
             border-radius: 12px;
             font-weight: 500;
-            background: linear-gradient(135deg, #0B2C3D 0%, #2A4C5D 100%);
+            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
             color: white;
             border: none;
         }
@@ -200,29 +200,29 @@
         }
 
         .btn-journal-visit {
-            background: linear-gradient(135deg, #0B2C3D 0%, #2A4C5D 100%);
+            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
             color: white;
-            box-shadow: 0 2px 8px rgba(11, 44, 61, 0.2);
+            box-shadow: 0 2px 8px rgba(15, 74, 162, 0.2);
         }
 
         .btn-journal-visit:hover {
-            background: linear-gradient(135deg, #1B3C4D 0%, #3A5C6D 100%);
+            background: linear-gradient(90deg, #0e4291, #0e925a);
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(11, 44, 61, 0.3);
+            box-shadow: 0 4px 12px rgba(15, 74, 162, 0.3);
             text-decoration: none;
         }
 
         .btn-journal-info {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            color: #0B2C3D;
-            border: 1px solid rgba(11, 44, 61, 0.15);
+            color: #0f4aa2;
+            border: 1px solid rgba(15, 74, 162, 0.15);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
         .btn-journal-info:hover {
             background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
-            color: #0B2C3D;
+            color: #0f4aa2;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             text-decoration: none;
@@ -261,7 +261,7 @@
         }
 
         .btn-journal-info::before {
-            background: rgba(11, 44, 61, 0.1);
+            background: rgba(15, 74, 162, 0.1);
         }
 
         .btn-journal-info:active::before {
@@ -277,7 +277,7 @@
 
         /* Section Title Enhancement */
         .section-title-area .section-subtitle {
-            color: #0B2C3D !important;
+            color: #0f4aa2 !important;
         }
 
         .section-title-area .section-title {
@@ -286,9 +286,9 @@
 
         /* Filter Buttons Enhancement */
         .ltn__gallery-filter-menu button {
-            background: rgba(11, 44, 61, 0.1);
-            color: #0B2C3D;
-            border: 1px solid rgba(11, 44, 61, 0.2);
+            background: rgba(15, 74, 162, 0.1);
+            color: #0f4aa2;
+            border: 1px solid rgba(15, 74, 162, 0.2);
             padding: 8px 16px;
             margin: 0 5px 10px 0;
             border-radius: 25px;
@@ -299,9 +299,9 @@
 
         .ltn__gallery-filter-menu button:hover,
         .ltn__gallery-filter-menu button.active {
-            background: linear-gradient(135deg, #0B2C3D 0%, #2A4C5D 100%);
+            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
             color: white;
-            border-color: #0B2C3D;
+            border-color: #0f4aa2;
             transform: translateY(-2px);
         }
 
@@ -356,7 +356,7 @@
 
         /* Enhanced Footer Styles */
         .enhanced-footer {
-            background: linear-gradient(135deg, #0B2C3D 0%, #1B3C4D 50%, #2A4C5D 100%);
+            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
             color: #ffffff;
             margin-top: 60px;
         }
@@ -592,7 +592,7 @@
             display: flex;
             align-items: center;
             overflow: hidden;
-            background: linear-gradient(135deg, #0B2C3D 0%, #1B3C4D 40%, #2A4C5D 70%, #3A5C6D 100%);
+            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
         }
 
         .hero-background {
@@ -601,7 +601,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, #0B2C3D 0%, #1B3C4D 50%, #2A4C5D 100%);
+            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
             z-index: -2;
         }
 
@@ -818,7 +818,7 @@
 
         .btn-hero-primary {
             background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #e9ecef 100%);
-            color: #0B2C3D;
+            color: #0f4aa2;
             box-shadow: 0 6px 25px rgba(255, 255, 255, 0.3);
         }
 
@@ -835,7 +835,7 @@
 
         .btn-hero-primary:hover {
             background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #dee2e6 100%);
-            color: #0B2C3D;
+            color: #0f4aa2;
             transform: translateY(-3px);
             box-shadow: 0 10px 35px rgba(255, 255, 255, 0.4);
             text-decoration: none;
@@ -1165,7 +1165,7 @@
             position: relative;
             width: 100%;
             min-height: 60vh;
-            background: linear-gradient(135deg, #0B2C3D 0%, #1B3C4D 50%, #2A4C5D 100%);
+            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
             overflow: hidden;
             display: flex;
             align-items: center;
@@ -1300,7 +1300,7 @@
             left: 20px;
             top: 50%;
             transform: translateY(-50%);
-            color: rgba(11, 44, 61, 0.6);
+            color: rgba(15, 74, 162, 0.6);
             font-size: 1.1rem;
             z-index: 2;
         }
@@ -1328,7 +1328,7 @@
         }
 
         .search-input::placeholder {
-            color: rgba(11, 44, 61, 0.6);
+            color: rgba(15, 74, 162, 0.6);
             font-weight: 400;
         }
 
@@ -1337,8 +1337,8 @@
             padding: 0 30px;
             border: none;
             border-radius: 30px;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            color: #0B2C3D;
+            background: linear-gradient(90deg, #0f4aa2, #0fa36b);
+            color: white;
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
@@ -1351,9 +1351,9 @@
         }
 
         .search-btn:hover {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            background: linear-gradient(90deg, #0e4291, #0e925a);
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 30px rgba(15, 74, 162, 0.3);
         }
 
         .search-filters {
@@ -2317,7 +2317,7 @@
     <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/script_banner.js"></script>
     <script src="{$baseUrl}/plugins/themes/default/js/custom.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/particle_custom3.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/particle_custom5.js"></script>
     <!-- Enhanced Search Area Scripts -->
    
 
