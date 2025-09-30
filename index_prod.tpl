@@ -1621,7 +1621,7 @@
         </div>
         <!-- Utilize Mobile Menu End -->
 
-        <div class="ltn__utilize-overlay"></div>\
+        <div class="ltn__utilize-overlay"></div>
 
         <!-- ENHANCED SEARCH AREA START -->
         <div class="enhanced-search-area">
@@ -2141,12 +2141,12 @@
     <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <!-- Particles App -->
-    <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/particle_custom.js"></script>
     <!-- Particles App -->
     <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/script_banner.js"></script>
     <script src="{$baseUrl}/plugins/themes/default/js/custom.js"></script>
-
+    
     <!-- Enhanced Search Area Scripts -->
+    <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/particle_custom1.js"></script>
     
 
 </body>

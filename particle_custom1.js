@@ -1,5 +1,5 @@
 // Enhanced Search Area Functionality
-document.addEventListener('DOMContentLoaded', function () {
+// document.addEventListener('DOMContentLoaded', function () {
     // Set current year
     const currentYear = new Date().getFullYear();
     const yearSpan = document.querySelector('.current-year');
@@ -241,4 +241,4 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('Search query:', this.value);
         });
     }
-});
+// });
