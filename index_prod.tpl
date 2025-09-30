@@ -1,17 +1,27 @@
+{strip}
+{* Determine whether a logo or title string is being displayed *}
+{assign var="showingLogo" value=true}
+{if !$displayPageHeaderLogo}
+{assign var="showingLogo" value=false}
+{/if}
+{/strip}
+
 <!doctype html>
 <html class="no-js" lang="zxx">
 
 <head>
-    <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Rumah Jurnal UIN Sjech M.Djamil Djambek Bukittinggi</title>
-    <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ 	<meta charset="{$defaultCharset|escape}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>
+		{$pageTitleTranslated|strip_tags}
+		{* Add the journal name to the end of page titles *}
+		{if $requestedPage|escape|default:"index" != 'index' && $currentContext && $currentContext->getLocalizedName()}
+			| {$currentContext->getLocalizedName()}
+		{/if}
+	</title>
 
-    <!-- Place favicon.png in the root directory -->
-    <link rel="shortcut icon" href="https://rumahjurnal.uinbukittinggi.ac.id/storage/setting/favicon.png"
-        type="image/x-icon" />
+	{load_header context="frontend"}
     <!-- Font Icons css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/css/font-icons.css">
     <!-- plugins css -->
@@ -138,6 +148,7 @@
             flex-wrap: wrap;
             gap: 5px;
         }
+
 
         .journal-badges .badge {
             font-size: 0.7rem;
@@ -305,7 +316,7 @@
             .journal-image-wrapper {
                 height: 220px;
             }
-            
+
             .journal-content {
                 padding: 15px;
             }
@@ -315,7 +326,7 @@
             .journal-image-wrapper {
                 height: 280px;
             }
-            
+
             .journal-title {
                 font-size: 0.95rem;
             }
@@ -362,7 +373,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: 
+            background:
                 radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
             pointer-events: none;
@@ -531,7 +542,7 @@
             .footer-main {
                 padding: 50px 0 30px;
             }
-            
+
             .footer-bottom-links {
                 justify-content: flex-start;
                 margin-top: 15px;
@@ -542,33 +553,33 @@
             .footer-main {
                 padding: 40px 0 25px;
             }
-            
+
             .footer-title {
                 font-size: 1.1rem;
                 margin-bottom: 15px;
             }
-            
+
             .footer-description {
                 font-size: 0.9rem;
                 margin-bottom: 20px;
             }
-            
+
             .footer-social {
                 justify-content: flex-start;
                 margin-bottom: 30px;
             }
-            
+
             .social-link {
                 width: 35px;
                 height: 35px;
             }
-            
+
             .footer-bottom-links {
                 flex-direction: column;
                 gap: 10px;
                 margin-top: 10px;
             }
-            
+
             .contact-item {
                 margin-bottom: 15px;
             }
@@ -599,7 +610,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
             z-index: -1;
@@ -611,7 +622,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
+            background-image:
                 radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.02) 2px, transparent 2px),
                 radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.02) 2px, transparent 2px);
             background-size: 50px 50px;
@@ -619,8 +630,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         .min-vh-70 {
@@ -761,8 +779,15 @@
         }
 
         @keyframes heroFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
         }
 
         .hero-main-image {
@@ -805,18 +830,39 @@
         }
 
         @keyframes floatElement1 {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(10px, -15px); }
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(10px, -15px);
+            }
         }
 
         @keyframes floatElement2 {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(-10px, 15px); }
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-10px, 15px);
+            }
         }
 
         @keyframes floatElement3 {
-            0%, 100% { transform: translate(0, 0); }
-            50% { transform: translate(15px, -10px); }
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(15px, -10px);
+            }
         }
 
         .hero-scroll-indicator {
@@ -830,9 +876,22 @@
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
-            40% { transform: translateX(-50%) translateY(-10px); }
-            60% { transform: translateX(-50%) translateY(-5px); }
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
         }
 
         .scroll-down span {
@@ -851,7 +910,7 @@
             .hero-title {
                 font-size: 2.8rem;
             }
-            
+
             .hero-main-image {
                 max-width: 350px;
             }
@@ -862,23 +921,23 @@
                 min-height: 80vh;
                 padding: 80px 0 60px;
             }
-            
+
             .hero-title {
                 font-size: 2.4rem;
             }
-            
+
             .hero-description {
                 max-width: 100%;
             }
-            
+
             .hero-stats {
                 gap: 20px;
             }
-            
+
             .stat-number {
                 font-size: 2rem;
             }
-            
+
             .hero-main-image {
                 max-width: 300px;
                 margin-top: 30px;
@@ -890,44 +949,418 @@
                 font-size: 2rem;
                 margin-bottom: 20px;
             }
-            
+
             .hero-description {
                 font-size: 1rem;
                 margin-bottom: 25px;
             }
-            
+
             .hero-stats {
                 gap: 15px;
                 justify-content: center;
                 margin-bottom: 30px;
             }
-            
+
             .stat-number {
                 font-size: 1.8rem;
             }
-            
+
             .stat-label {
                 font-size: 0.8rem;
             }
-            
+
             .hero-actions {
                 justify-content: center;
             }
-            
+
             .btn-hero-primary,
             .btn-hero-secondary {
                 padding: 12px 24px;
                 font-size: 0.9rem;
             }
-            
+
             .hero-main-image {
                 max-width: 250px;
             }
-            
+
             .floating-element {
                 width: 45px;
                 height: 45px;
                 font-size: 1.2rem;
+            }
+        }
+
+        /* Enhanced Search Area Styles */
+        .enhanced-search-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 9999;
+            display: none;
+            background: linear-gradient(135deg, #0B2C3D 0%, #1B3C4D 50%, #2A4C5D 100%);
+            overflow: hidden;
+        }
+
+        .enhanced-search-area.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .search-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+            z-index: 2;
+        }
+
+        .search-container {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            padding: 40px 20px;
+        }
+
+        .search-content {
+            animation: slideUp 0.5s ease-out 0.2s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .search-header {
+            margin-bottom: 40px;
+        }
+
+        .search-icon {
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+
+        .search-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .search-subtitle {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0;
+            font-weight: 400;
+        }
+
+        .search-form-wrapper {
+            margin-bottom: 40px;
+        }
+
+        .enhanced-search-form {
+            max-width: 100%;
+        }
+
+        .search-input-group {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            align-items: flex-start;
+        }
+
+        .search-input-wrapper {
+            flex: 1;
+            position: relative;
+        }
+
+        .input-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(11, 44, 61, 0.6);
+            font-size: 1.1rem;
+            z-index: 2;
+        }
+
+        .search-input {
+            width: 100%;
+            height: 60px;
+            padding: 0 60px 0 55px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            font-size: 1.1rem;
+            color: #2c3e50;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .search-input::placeholder {
+            color: rgba(11, 44, 61, 0.6);
+            font-weight: 400;
+        }
+
+        .search-btn {
+            height: 60px;
+            padding: 0 30px;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            color: #0B2C3D;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            white-space: nowrap;
+        }
+
+        .search-btn:hover {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.3);
+        }
+
+        .search-filters {
+            display: flex;
+            justify-content: center;
+        }
+
+        .filter-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .filter-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            user-select: none;
+        }
+
+        .filter-label:hover {
+            color: white;
+        }
+
+        .filter-label input[type="radio"] {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-label input[type="radio"]:checked {
+            border-color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .filter-label input[type="radio"]:checked::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .search-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            color: white;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: white;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 500;
+        }
+
+        .search-close-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border: none;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 4;
+        }
+
+        .search-close-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .search-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            z-index: 10;
+            display: none;
+        }
+
+        /* Responsive Design for Search */
+        @media (max-width: 991px) {
+            .search-title {
+                font-size: 2rem;
+            }
+            
+            .search-icon {
+                font-size: 3rem;
+            }
+            
+            .search-input-group {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .search-stats {
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .search-title {
+                font-size: 1.8rem;
+            }
+            
+            .search-subtitle {
+                font-size: 1rem;
+            }
+            
+            .search-input {
+                height: 55px;
+                font-size: 1rem;
+                padding: 0 50px 0 50px;
+            }
+            
+            .input-icon {
+                left: 18px;
+                font-size: 1rem;
+            }
+            
+            .search-btn {
+                height: 55px;
+                font-size: 0.9rem;
+            }
+            
+            .filter-group {
+                gap: 15px;
+            }
+            
+            .filter-label {
+                font-size: 0.9rem;
+            }
+            
+            .search-stats {
+                gap: 25px;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .search-close-btn {
+                top: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
             }
         }
     </style>
@@ -956,9 +1389,18 @@
 
                                 <div class="site-logo-wrap">
                                     <div class="site-logo">
-                                        <a href="index.html"><img
-                                                src="https://rumahjurnal.uinbukittinggi.ac.id/storage/setting/logo.png"
-                                                alt="Logo" style="height: 60px;"></a>
+                                        <a href="/">
+                                            {if $displayPageHeaderLogo}
+                                            <img src='{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}'
+                                                alt="Logo" style="height: 60px;">
+                                            {elseif $displayPageHeaderTitle}
+                                            <h1 style="color: white; font-size: 24px; margin: 0;">
+                                                {$displayPageHeaderTitle|escape}</h1>
+                                            {else}
+                                            <img src="{$baseUrl}/templates/images/structure/logo.png"
+                                                alt="{$applicationName|escape}" style="height: 60px;">
+                                            {/if}
+                                        </a>
                                     </div>
 
                                 </div>
@@ -979,15 +1421,34 @@
                                 <nav>
                                     <div class="ltn__main-menu">
                                         <ul>
-                                            <li><a href="#">Home</a></li>
-                                            <li><a href="https://ejournal.uinbukittinggi.ac.id/index.php/index/about">About
-                                                    Us</a></li>
+                                            <li><a href="/">Home</a></li>
+                                            <li><a href="https://rumahjurnal.uinbukittinggi.ac.id/">Rumah Jurnal</a>
+                                            </li>
                                             <li><a href="#journal">All journal</a></li>
                                             <li><a
                                                     href="https://ejournal.uinbukittinggi.ac.id/index.php/index/search">Search</a>
                                             </li>
-                                            <li><a href="#contact">Contact</a></li>
-                                            <li><a href="#journal">Login</a></li>
+                                            <li><a href="https://rumahjurnal.uinbukittinggi.ac.id/contact">Contact</a>
+                                            </li>
+                                            {if !$isUserLoggedIn}
+                                            <li><a href="{$baseUrl}/index.php/index/login">Login</a></li>
+                                            <li><a href="{$baseUrl}/index.php/index/user/register">Register</a></li>
+                                            {else}
+                                            <li>
+                                                <a href="{$baseUrl}/index.php/index/submissions" class="dashboard-link">
+                                                    Dashboard
+                                                    {if $dashboardStats.unreadTasks > 0}
+                                                    <span
+                                                        class="badge badge-notification">{$dashboardStats.unreadTasks}</span>
+                                                    {/if}
+                                                </a>
+                                            </li>
+                                            {if $isAdmin}
+                                            <li><a href="{$baseUrl}/index.php/index/admin" class="admin-link">
+                                                    <i class="fas fa-cog"></i> Administrator
+                                                </a></li>
+                                            {/if}
+                                            {/if}
                                         </ul>
                                     </div>
                                 </nav>
@@ -1003,8 +1464,8 @@
                                     </div>
                                 </div>
                                 <div class="header-search-1-form">
-                                    <form id="#" method="get" action="#">
-                                        <input type="text" name="search" value="" placeholder="Search here..." />
+                                    <form id="#" method="get" action="/index.php/index/search">
+                                        <input type="text" name="query" value="" placeholder="Search here..." />
                                         <button type="submit">
                                             <span><i class="icon-search"></i></span>
                                         </button>
@@ -1017,10 +1478,28 @@
                                     <li>
                                         <a href="#"><i class="icon-user"></i></a>
                                         <ul>
-                                            <li><a href="login.html">Sign in</a></li>
-                                            <li><a href="register.html">Register</a></li>
-                                            <li><a href="account.html">My Account</a></li>
-                                            <li><a href="wishlist.html">Wishlist</a></li>
+                                            {if !$isUserLoggedIn}
+                                            <li><a href="{$baseUrl}/index.php/index/login">Login</a></li>
+                                            <li><a href="{$baseUrl}/index.php/index/user/register">Register</a></li>
+                                            {else}
+                                            <li><a href="{$baseUrl}/index/user/profile">Edit Profile</a></li>
+                                            <li>
+                                                <a href="{$baseUrl}/index.php/index/submissions" class="dashboard-link">
+                                                    Dashboard
+                                                    {if $dashboardStats.unreadTasks > 0}
+                                                    <span
+                                                        class="badge badge-notification">{$dashboardStats.unreadTasks}</span>
+                                                    {/if}
+                                                </a>
+                                            </li>
+                                            {if $isAdmin}
+                                            <li><a href="{$baseUrl}/index.php/index/admin" class="admin-link">
+                                                    <i class="fas fa-cog"></i> Administrator
+                                                </a></li>
+                                            {/if}
+                                            <li><a href="{$baseUrl}/index.php/index/login/signOut">Logout</a></li>
+                                            {/if}
+
                                         </ul>
                                     </li>
                                 </ul>
@@ -1058,7 +1537,16 @@
             <div class="ltn__utilize-menu-inner ltn__scrollbar">
                 <div class="ltn__utilize-menu-head">
                     <div class="site-logo">
-                        <a href="index.html"><img src="img/logo.png" alt="Logo"></a>
+                        <a href="/">
+                            {if $displayPageHeaderLogo}
+                            <img src='{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}' alt="Logo">
+                            {elseif $displayPageHeaderTitle}
+                            <h1 style="color: white; font-size: 24px; margin: 0;">
+                                {$displayPageHeaderTitle|escape}</h1>
+                            {else}
+                            <img src="{$baseUrl}/templates/images/structure/logo.png" alt="{$applicationName|escape}">
+                            {/if}
+                        </a>
                     </div>
                     <button class="ltn__utilize-close">×</button>
                 </div>
@@ -1070,116 +1558,146 @@
                 </div>
                 <div class="ltn__utilize-menu">
                     <ul>
-                        <li><a href="#">Home</a>
-                            <ul class="sub-menu">
-                                <li><a href="index.html">Home Style 01</a></li>
-                                <li><a href="index-2.html">Home Style 02</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">About</a>
-                            <ul class="sub-menu">
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="service.html">Services</a></li>
-                                <li><a href="service-details.html">Service Details</a></li>
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="portfolio-2.html">Portfolio - 02</a></li>
-                                <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                <li><a href="team.html">Team</a></li>
-                                <li><a href="team-details.html">Team Details</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="locations.html">Google Map Locations</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Shop</a>
-                            <ul class="sub-menu">
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="shop-grid.html">Shop Grid</a></li>
-                                <li><a href="shop-left-sidebar.html">Shop Left sidebar</a></li>
-                                <li><a href="shop-right-sidebar.html">Shop right sidebar</a></li>
-                                <li><a href="product-details.html">Shop details </a></li>
-                                <li><a href="cart.html">Cart</a></li>
-                                <li><a href="wishlist.html">Wishlist</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                                <li><a href="order-tracking.html">Order Tracking</a></li>
-                                <li><a href="account.html">My Account</a></li>
-                                <li><a href="login.html">Sign in</a></li>
-                                <li><a href="register.html">Register</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">News</a>
-                            <ul class="sub-menu">
-                                <li><a href="blog.html">News</a></li>
-                                <li><a href="blog-grid.html">News Grid</a></li>
-                                <li><a href="blog-left-sidebar.html">News Left sidebar</a></li>
-                                <li><a href="blog-right-sidebar.html">News Right sidebar</a></li>
-                                <li><a href="blog-details.html">News details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Pages</a>
-                            <ul class="sub-menu">
-                                <li><a href="about.html">About</a></li>
-                                <li><a href="service.html">Services</a></li>
-                                <li><a href="service-details.html">Service Details</a></li>
-                                <li><a href="portfolio.html">Portfolio</a></li>
-                                <li><a href="portfolio-2.html">Portfolio - 02</a></li>
-                                <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                <li><a href="team.html">Team</a></li>
-                                <li><a href="team-details.html">Team Details</a></li>
-                                <li><a href="faq.html">FAQ</a></li>
-                                <li><a href="history.html">History</a></li>
-                                <li><a href="add-listing.html">Add Listing</a></li>
-                                <li><a href="locations.html">Google Map Locations</a></li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="contact.html">Contact</a></li>
-                                <li><a href="coming-soon.html">Coming Soon</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="https://rumahjurnal.uinbukittinggi.ac.id/">Rumah Jurnal</a></li>
+                        <li><a href="#journal">All journal</a></li>
+                        <li><a href="https://ejournal.uinbukittinggi.ac.id/index.php/index/search">Search</a></li>
+                        <li><a href="https://rumahjurnal.uinbukittinggi.ac.id/contact">Contact</a></li>
                     </ul>
                 </div>
                 <div class="ltn__utilize-buttons ltn__utilize-buttons-2">
                     <ul>
+                        {if !$isUserLoggedIn}
                         <li>
-                            <a href="account.html" title="My Account">
+                            <a href="{$baseUrl}/index.php/index/login" title="My Account">
                                 <span class="utilize-btn-icon">
                                     <i class="far fa-user"></i>
                                 </span>
-                                My Account
+                                Login
                             </a>
                         </li>
                         <li>
-                            <a href="wishlist.html" title="Wishlist">
+                            <a href="{$baseUrl}/index.php/index/user/register" title="Register">
                                 <span class="utilize-btn-icon">
-                                    <i class="far fa-heart"></i>
-                                    <sup>3</sup>
+                                    <i class="fas fa-user-plus"></i>
                                 </span>
-                                Wishlist
+                                Register
+                            </a>
+                        </li>
+                        {else}
+                        <li>
+                            <a href="{$baseUrl}/index/user/profile"></a>
+                            <span class="utilize-btn-icon">
+                                <i class="far fa-user"></i>
+                            </span>
+                            Edit Profile
                             </a>
                         </li>
                         <li>
-                            <a href="cart.html" title="Shoping Cart">
+                            <a href="{$baseUrl}/index.php/index/submissions" class="dashboard-link">
                                 <span class="utilize-btn-icon">
-                                    <i class="fas fa-shopping-cart"></i>
-                                    <sup>5</sup>
+                                    <i class="far fa-tachometer-alt"></i>
+                                    {if $dashboardStats.unreadTasks > 0}
+                                    <sup class="badge badge-notification">{$dashboardStats.unreadTasks}</sup>
+                                    {/if}
                                 </span>
-                                Shoping Cart
+                                Dashboard
                             </a>
                         </li>
-                    </ul>
-                </div>
-                <div class="ltn__social-media-2">
-                    <ul>
-                        <li><a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#" title="Twitter"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="#" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
-                        <li><a href="#" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+                        <li>
+                            <a href="{$baseUrl}/index.php/index/login/signOut">
+                                <span class="utilize-btn-icon">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                </span>
+                                Logout
+                            </a>
+                        </li>
+                        {/if}
+
+
                     </ul>
                 </div>
             </div>
         </div>
         <!-- Utilize Mobile Menu End -->
 
-        <div class="ltn__utilize-overlay"></div>
+        <div class="ltn__utilize-overlay"></div>\
+
+        <!-- ENHANCED SEARCH AREA START -->
+        <div class="enhanced-search-area">
+            <div id="particles-js"></div>
+            <div class="search-overlay"></div>
+            <div class="search-container">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-md-10">
+                            <div class="search-content text-center">
+                                <div class="search-header">
+                                    <i class="fas fa-search search-icon"></i>
+                                    <h2 class="search-title">Search Academic Resources</h2>
+                                    <p class="search-subtitle">Discover thousands of academic articles, journals, and research papers</p>
+                                </div>
+                                <div class="search-form-wrapper">
+                                    <form action="/index.php/index/search" method="get" class="enhanced-search-form">
+                                        <div class="search-input-group">
+                                            <div class="search-input-wrapper">
+                                                <i class="fas fa-search input-icon"></i>
+                                                <input type="text" name="query" class="search-input" 
+                                                       placeholder="Search by title, author, subject, or keywords..." 
+                                                       autocomplete="off">
+                                                <div class="search-suggestions" id="searchSuggestions"></div>
+                                            </div>
+                                            <button type="submit" class="search-btn">
+                                                <i class="fas fa-arrow-right"></i>
+                                                <span>Search</span>
+                                            </button>
+                                        </div>
+                                        <div class="search-filters">
+                                            <div class="filter-group">
+                                                <label class="filter-label">
+                                                    <input type="radio" name="searchType" value="all" checked>
+                                                    <span class="filter-text">All Content</span>
+                                                </label>
+                                                <label class="filter-label">
+                                                    <input type="radio" name="searchType" value="articles">
+                                                    <span class="filter-text">Articles</span>
+                                                </label>
+                                                <label class="filter-label">
+                                                    <input type="radio" name="searchType" value="authors">
+                                                    <span class="filter-text">Authors</span>
+                                                </label>
+                                                <label class="filter-label">
+                                                    <input type="radio" name="searchType" value="journals">
+                                                    <span class="filter-text">Journals</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="search-stats">
+                                    <div class="stat-item">
+                                        <span class="stat-number">500+</span>
+                                        <span class="stat-label">Articles</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">25+</span>
+                                        <span class="stat-label">Journals</span>
+                                    </div>
+                                    <div class="stat-item">
+                                        <span class="stat-number">100+</span>
+                                        <span class="stat-label">Authors</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="search-close-btn" onclick="closeSearchArea()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+        <!-- ENHANCED SEARCH AREA END -->
 
         <!-- HERO BANNER AREA START -->
         <div class="hero-banner-area">
@@ -1194,16 +1712,15 @@
                             <div class="hero-subtitle">
                                 <span class="badge hero-badge">
                                     <i class="fas fa-graduation-cap"></i>
-                                    Academic Excellence
+                                    Rumah Jurnal UIN Sjech M. Djamil Djambek Bukittinggi
                                 </span>
                             </div>
                             <h1 class="hero-title">
-                                Welcome to <span class="highlight">Rumah Jurnal</span><br>
+                                Welcome to <span class="highlight">E-Journal</span><br>
                                 UIN Sjech M. Djamil Djambek Bukittinggi
                             </h1>
                             <p class="hero-description">
-                                Portal publikasi ilmiah resmi yang menyediakan akses terbuka ke berbagai jurnal berkualitas tinggi 
-                                dalam bidang studi Islam, sains, teknologi, dan humaniora.
+                                The official scientific publication portal providing open access to high-quality journals in Islamic studies, science, technology, and humanities.
                             </p>
                             <div class="hero-stats">
                                 <div class="stat-item">
@@ -1224,7 +1741,8 @@
                                     <i class="fas fa-book-reader"></i>
                                     Browse Journals
                                 </a>
-                                <a href="https://ejournal.uinbukittinggi.ac.id/index.php/index/search" class="btn-hero-secondary">
+                                <a href="https://ejournal.uinbukittinggi.ac.id/index.php/index/search"
+                                    class="btn-hero-secondary">
                                     <i class="fas fa-search"></i>
                                     Search Articles
                                 </a>
@@ -1234,8 +1752,8 @@
                     <div class="col-lg-5 col-md-6">
                         <div class="hero-image">
                             <div class="hero-image-wrapper">
-                                <img src="https://res.cloudinary.com/duuawbwih/image/upload/v1747042342/Desain_tanpa_judul_1_nr0kdz.png" 
-                                     alt="Academic Publications" class="img-fluid hero-main-image">
+                                <img src="https://res.cloudinary.com/duuawbwih/image/upload/v1747042342/Desain_tanpa_judul_1_nr0kdz.png"
+                                    alt="Academic Publications" class="img-fluid hero-main-image">
                                 <div class="floating-element element-1">
                                     <i class="fas fa-book"></i>
                                 </div>
@@ -1276,10 +1794,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-lg-12">
-                        <div class="ltn__gallery-menu">
-                            <div class="ltn__gallery-filter-menu portfolio-filter text-uppercase mb-50">
+                        <div class="ltn__gallery-menu text-center">
+                            <div class="ltn__gallery-filter-menu portfolio-filter text-uppercase mb-50 d-inline-block">
                                 <button data-filter="*" class="active">all</button>
                                 <button data-filter=".SCOPUS">Scopus</button>
                                 <button data-filter=".SINTA-1">Sinta 1</button>
@@ -1290,6 +1808,8 @@
                                 <button data-filter=".SINTA-6">Sinta 6</button>
                                 <button data-filter=".WOS">Wos</button>
                                 <button data-filter=".DOAJ">DOAJ</button>
+                                <button data-filter=".EBSCO">EBSCO</button>
+                                <button data-filter=".COPERNICUS">COPERNICUS</button>
                                 <button data-filter=".MORAREF">MORAREF</button>
                                 <button data-filter=".GARUDA">GARUDA</button>
                             </div>
@@ -1311,19 +1831,19 @@
                     {assign var="thumb" value=$journal->getLocalizedData('journalThumbnail')}
                     {assign var="description" value=$journal->getLocalizedDescription()}
 
-                    <div class="ltn__gallery-item col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mb-4" id="filter_{$journal->getPath()|escape}">
+                    <div class="ltn__gallery-item col-xl-2 col-lg-3 col-md-4 col-sm-6 col-12 mb-4"
+                        id="filter_{$journal->getPath()|escape}">
                         <div class="journal-card h-100">
                             <div class="journal-image-container">
-                                <a href="#" data-toggle="modal" data-target="#{$journal->getPath()|escape}" class="journal-image-link">
+                                <a href="#" data-toggle="modal" data-target="#{$journal->getPath()|escape}"
+                                    class="journal-image-link">
                                     <div class="journal-image-wrapper">
                                         {if $thumb}
                                         <img src='{$journalFilesPath}{$journal->getId()}/{$thumb.uploadName|escape:"url"}'
-                                            alt="{$journal->getLocalizedName()|escape}"
-                                            class="journal-image">
+                                            alt="{$journal->getLocalizedName()|escape}" class="journal-image">
                                         {else}
                                         <img src="https://res.cloudinary.com/duuawbwih/image/upload/v1747042342/Desain_tanpa_judul_1_nr0kdz.png"
-                                            alt="{$journal->getLocalizedName()|escape}"
-                                            class="journal-image">
+                                            alt="{$journal->getLocalizedName()|escape}" class="journal-image">
                                         {/if}
                                         <div class="journal-overlay">
                                             <i class="fas fa-eye"></i>
@@ -1344,7 +1864,8 @@
                                         <i class="fas fa-external-link-alt"></i>
                                         <span class="btn-text">Visit</span>
                                     </a>
-                                    <a href="#" data-toggle="modal" data-target="#{$journal->getPath()|escape}" class="btn-journal-info" title="View Info">
+                                    <a href="#" data-toggle="modal" data-target="#{$journal->getPath()|escape}"
+                                        class="btn-journal-info" title="View Info">
                                         <i class="fas fa-info-circle"></i>
                                         <span class="btn-text">Details</span>
                                     </a>
@@ -1362,7 +1883,8 @@
                                     <h4 class="modal-title journal-modal-title">
                                         <i class="fas fa-book-open"></i> {$journal->getLocalizedName()|escape}
                                     </h4>
-                                    <button type="button" class="close journal-modal-close" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close journal-modal-close" data-dismiss="modal"
+                                        aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
@@ -1376,27 +1898,38 @@
                                                         <div class="team-details-img">
                                                             {if $thumb}
                                                             <img src='{$journalFilesPath}{$journal->getId()}/{$thumb.uploadName|escape:"url"}'
-                                                                alt="journal" style="width: 100%; height: auto; max-height: 300px; object-fit: cover;">
+                                                                alt="journal"
+                                                                style="width: 100%; height: auto; max-height: 300px; object-fit: cover;">
                                                             {else}
                                                             <img src="https://res.cloudinary.com/duuawbwih/image/upload/v1747042342/Desain_tanpa_judul_1_nr0kdz.png"
-                                                                alt="journal" style="width: 100%; height: auto; max-height: 300px; object-fit: cover;">
+                                                                alt="journal"
+                                                                style="width: 100%; height: auto; max-height: 300px; object-fit: cover;">
                                                             {/if}
                                                         </div>
                                                         <h2>{$journal->getLocalizedName()|escape}</h2>
                                                         <div class="journal-badge-container mb-3">
-                                                            <span class="badge" style="background: linear-gradient(135deg, #0B2C3D 0%, #2A4C5D 100%); color: white; margin-right: 8px;">Academic Journal</span>
-                                                            <span class="badge" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white;">Open Access</span>
+                                                            <span class="badge"
+                                                                style="background: linear-gradient(135deg, #0B2C3D 0%, #2A4C5D 100%); color: white; margin-right: 8px;">Academic
+                                                                Journal</span>
+                                                            <span class="badge"
+                                                                style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white;">Open
+                                                                Access</span>
                                                         </div>
                                                         <div
                                                             class="widget-2 ltn__menu-widget ltn__menu-widget-2 text-uppercase">
                                                             <ul>
                                                                 <li>
-                                                                    <a href="{$url|escape}" class="d-flex align-items-center py-2 px-3 rounded mb-2" style="background: linear-gradient(135deg, #0B2C3D 0%, #2A4C5D 100%); color: #fff; font-weight: 500;">
-                                                                        <i class="fas fa-external-link-alt mr-2"></i> Visit Journal
+                                                                    <a href="{$url|escape}"
+                                                                        class="d-flex align-items-center py-2 px-3 rounded mb-2"
+                                                                        style="background: linear-gradient(135deg, #0B2C3D 0%, #2A4C5D 100%); color: #fff; font-weight: 500;">
+                                                                        <i class="fas fa-external-link-alt mr-2"></i>
+                                                                        Visit Journal
                                                                     </a>
                                                                 </li>
                                                                 <li>
-                                                                    <a href="{url journal=$journal->getPath() page='issue' op='current'}" class="d-flex align-items-center py-2 px-3 rounded" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: #fff; font-weight: 500;">
+                                                                    <a href="{url journal=$journal->getPath() page='issue' op='current'}"
+                                                                        class="d-flex align-items-center py-2 px-3 rounded"
+                                                                        style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: #fff; font-weight: 500;">
                                                                         <i class="fas fa-book mr-2"></i> Current Issue
                                                                     </a>
                                                                 </li>
@@ -1426,7 +1959,7 @@
                                                                         <li><strong>Indexing:</strong> <span
                                                                                 id="indexing_{$journal->getPath()|escape}"></span>
                                                                         </li>
-                                                                        
+
                                                                     </ul>
                                                                 </div>
                                                             </div>
@@ -1466,13 +1999,21 @@
                         <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                             <div class="footer-about">
                                 <div class="footer-logo mb-3">
-                                    <img src="https://rumahjurnal.uinbukittinggi.ac.id/storage/setting/logo.png" 
-                                         alt="Rumah Jurnal UIN Bukittinggi" class="footer-logo-img">
+                                    {if $displayPageHeaderLogo}
+                                    <img src='{$publicFilesDir}/{$displayPageHeaderLogo.uploadName|escape:"url"}'
+                                        alt="Logo" class="footer-logo-img">
+                                    {elseif $displayPageHeaderTitle}
+                                    <h1 style="color: white; font-size: 24px; margin: 0;">
+                                        {$displayPageHeaderTitle|escape}</h1>
+                                    {else}
+                                    <img src="{$baseUrl}/templates/images/structure/logo.png"
+                                        alt="{$applicationName|escape}" class="footer-logo-img">
+                                    {/if}
+
                                 </div>
-                                <h5 class="footer-title">Rumah Jurnal UIN Bukittinggi</h5>
+                                <h5 class="footer-title">E-Journal UIN Bukittinggi</h5>
                                 <p class="footer-description">
-                                    Rumah Jurnal UIN Sjech M. Djamil Djambek Bukittinggi adalah portal publikasi ilmiah resmi 
-                                    Universitas Islam Negeri Sjech M.Djamil Djambek Bukittinggi
+                                    E-Journal UIN Sjech M. Djamil Djambek Bukittinggi is the official scientific publication portal of the State Islamic University of Sjech M. Djamil Djambek Bukittinggi.
                                 </p>
                                 <div class="footer-social">
                                     <a href="#" class="social-link" title="Facebook">
@@ -1499,11 +2040,14 @@
                             <div class="footer-links">
                                 <h5 class="footer-title">Quick Links</h5>
                                 <ul class="footer-menu">
-                                    <li><a href="#">Home</a></li>
-                                    <li><a href="https://ejournal.uinbukittinggi.ac.id/index.php/index/about">About Us</a></li>
-                                    <li><a href="#journal">All Journals</a></li>
-                                    <li><a href="https://ejournal.uinbukittinggi.ac.id/index.php/index/search">Search</a></li>
-                                    <li><a href="#contact">Contact</a></li>
+                                    <li><a href="/">Home</a></li>
+                                    </li>
+                                    <li><a href="#journal">All journal</a></li>
+                                    <li><a
+                                            href="https://ejournal.uinbukittinggi.ac.id/index.php/index/search">Search</a>
+                                    </li>
+                                    <li><a href="https://rumahjurnal.uinbukittinggi.ac.id/contact">Contact</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -1511,13 +2055,13 @@
                         <!-- Journal Categories Section -->
                         <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
                             <div class="footer-links">
-                                <h5 class="footer-title">Categories</h5>
+                                <h5 class="footer-title">External Links</h5>
                                 <ul class="footer-menu">
-                                    <li><a href="#">Scopus Indexed</a></li>
-                                    <li><a href="#">Sinta Indexed</a></li>
-                                    <li><a href="#">DOAJ Listed</a></li>
-                                    <li><a href="#">Open Access</a></li>
-                                    <li><a href="#">Recent Issues</a></li>
+                                    <li><a href="https://uinbukittinggi.ac.id/">UIN Bukittinggi</a></li>
+                                    <li><a href="https://rumahjurnal.uinbukittinggi.ac.id/">Rumah Jurnal</a></li>
+                                    <li><a href="https://proceedings.uinbukittinggi.ac.id/">Proceeding</a></li>
+                                    <li><a href="">StudentResearchHub</a></li>
+                     
                                 </ul>
                             </div>
                         </div>
@@ -1532,8 +2076,10 @@
                                             <i class="fas fa-map-marker-alt"></i>
                                         </div>
                                         <div class="contact-text">
-                                            <p>Data Center Building, 2nd floor, State Islamic University of Sjech M. Djamil Djambek Bukittinggi. 
-                                            Gurun Aua St, Kubang Putih, Banuhampu, Agam - West Sumatra - Indonesia.</p>
+                                            <p>Data Center Building, 2nd floor, State Islamic University of Sjech M.
+                                                Djamil Djambek Bukittinggi.
+                                                Gurun Aua St, Kubang Putih, Banuhampu, Agam - West Sumatra - Indonesia.
+                                            </p>
                                         </div>
                                     </div>
                                     <div class="contact-item">
@@ -1549,7 +2095,8 @@
                                             <i class="fas fa-envelope"></i>
                                         </div>
                                         <div class="contact-text">
-                                            <a href="mailto:rumahjurnal@uinbukittinggi.ac.id">rumahjurnal@uinbukittinggi.ac.id</a>
+                                            <a
+                                                href="mailto:rumahjurnal@uinbukittinggi.ac.id">rumahjurnal@uinbukittinggi.ac.id</a>
                                         </div>
                                     </div>
                                 </div>
@@ -1565,13 +2112,14 @@
                     <div class="row align-items-center">
                         <div class="col-md-6">
                             <div class="copyright-text">
-                                <p>&copy; <span class="current-year">2024</span> Rumah Jurnal UIN Sjech M. Djamil Djambek Bukittinggi. All Rights Reserved.</p>
+                                <p>&copy; <span class="current-year">2025</span> Rumah Jurnal UIN Sjech M. Djamil
+                                    Djambek Bukittinggi. All Rights Reserved.</p>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="footer-bottom-links">
-                                <a href="#">Privacy Policy</a>
-                                <a href="#">Terms of Service</a>
+                                <a href="https://rumahjurnal.uinbukittinggi.ac.id/privacy-policy">Privacy Policy</a>
+                                <a href="https://rumahjurnal.uinbukittinggi.ac.id/terms-of-service">Terms of Service</a>
                                 <a href="#">Sitemap</a>
                             </div>
                         </div>
@@ -1580,8 +2128,6 @@
             </div>
         </footer>
         <!-- FOOTER AREA END -->
-
-
 
     </div>
     <!-- Body main wrapper end -->
@@ -1592,10 +2138,16 @@
     <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/js/plugins.js"></script>
     <!-- Main JS -->
     <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/js/main.js"></script>
-    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Particles App -->
+    <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/particle_custom.js"></script>
+    <!-- Particles App -->
     <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/script_banner.js"></script>
-
     <script src="{$baseUrl}/plugins/themes/default/js/custom.js"></script>
+
+    <!-- Enhanced Search Area Scripts -->
+    
 
 </body>
 
