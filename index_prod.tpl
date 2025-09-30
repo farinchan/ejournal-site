@@ -11,17 +11,17 @@
 
 <head>
     <meta http-equiv="x-ua-compatible" content="ie=edge">
- 	<meta charset="{$defaultCharset|escape}">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>
-		{$pageTitleTranslated|strip_tags}
-		{* Add the journal name to the end of page titles *}
-		{if $requestedPage|escape|default:"index" != 'index' && $currentContext && $currentContext->getLocalizedName()}
-			| {$currentContext->getLocalizedName()}
-		{/if}
-	</title>
+    <meta charset="{$defaultCharset|escape}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {$pageTitleTranslated|strip_tags}
+        {* Add the journal name to the end of page titles *}
+        {if $requestedPage|escape|default:"index" != 'index' && $currentContext && $currentContext->getLocalizedName()}
+        | {$currentContext->getLocalizedName()}
+        {/if}
+    </title>
 
-	{load_header context="frontend"}
+    {load_header context="frontend"}
     <!-- Font Icons css -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/css/font-icons.css">
     <!-- plugins css -->
@@ -992,15 +992,15 @@
 
         /* Enhanced Search Area Styles */
         .enhanced-search-area {
-            position: fixed;
-            top: 0;
-            left: 0;
+            position: relative;
             width: 100%;
-            height: 100vh;
-            z-index: 9999;
-            display: none;
+            min-height: 60vh;
             background: linear-gradient(135deg, #0B2C3D 0%, #1B3C4D 50%, #2A4C5D 100%);
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 0;
         }
 
         .enhanced-search-area.active {
@@ -1011,8 +1011,13 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         #particles-js {
@@ -1022,6 +1027,7 @@
             width: 100%;
             height: 100%;
             z-index: 1;
+            opacity: 0.6;
         }
 
         .search-overlay {
@@ -1030,7 +1036,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
+            background:
                 radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%),
                 radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
             z-index: 2;
@@ -1040,7 +1046,7 @@
             position: relative;
             z-index: 3;
             width: 100%;
-            padding: 40px 20px;
+            padding: 30px 20px;
         }
 
         .search-content {
@@ -1052,6 +1058,7 @@
                 transform: translateY(30px);
                 opacity: 0;
             }
+
             to {
                 transform: translateY(0);
                 opacity: 1;
@@ -1059,26 +1066,35 @@
         }
 
         .search-header {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .search-icon {
-            font-size: 4rem;
+            font-size: 3rem;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             animation: pulse 2s ease-in-out infinite;
         }
 
         @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.9; }
-            50% { transform: scale(1.05); opacity: 1; }
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.9;
+            }
+
+            50% {
+                transform: scale(1.05);
+                opacity: 1;
+            }
         }
 
         .search-title {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             font-weight: 700;
             color: white;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             line-height: 1.2;
         }
 
@@ -1090,7 +1106,7 @@
         }
 
         .search-form-wrapper {
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
 
         .enhanced-search-form {
@@ -1253,26 +1269,8 @@
         }
 
         .search-close-btn {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            border: none;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            font-size: 1.2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 4;
-        }
-
-        .search-close-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: rotate(90deg);
+            display: none;
+            /* Hide close button since it's not a modal anymore */
         }
 
         .search-suggestions {
@@ -1292,75 +1290,86 @@
 
         /* Responsive Design for Search */
         @media (max-width: 991px) {
+            .enhanced-search-area {
+                min-height: 50vh;
+                padding: 40px 0;
+            }
+
             .search-title {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
-            
+
             .search-icon {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
-            
+
             .search-input-group {
                 flex-direction: column;
                 gap: 15px;
             }
-            
+
             .search-btn {
                 width: 100%;
                 justify-content: center;
             }
-            
+
             .search-stats {
                 gap: 30px;
             }
         }
 
         @media (max-width: 767px) {
+            .enhanced-search-area {
+                min-height: 45vh;
+                padding: 30px 0;
+            }
+
             .search-title {
-                font-size: 1.8rem;
+                font-size: 1.6rem;
             }
-            
+
             .search-subtitle {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
-            
+
             .search-input {
-                height: 55px;
+                height: 50px;
                 font-size: 1rem;
                 padding: 0 50px 0 50px;
             }
-            
+
             .input-icon {
                 left: 18px;
                 font-size: 1rem;
             }
-            
+
             .search-btn {
-                height: 55px;
+                height: 50px;
                 font-size: 0.9rem;
             }
-            
+
             .filter-group {
                 gap: 15px;
             }
-            
+
             .filter-label {
-                font-size: 0.9rem;
+                font-size: 0.85rem;
             }
-            
+
             .search-stats {
-                gap: 25px;
+                gap: 20px;
             }
-            
+
             .stat-number {
-                font-size: 1.5rem;
+                font-size: 1.4rem;
             }
-            
-            .search-close-btn {
-                top: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
+
+            .search-header {
+                margin-bottom: 20px;
+            }
+
+            .search-form-wrapper {
+                margin-bottom: 20px;
             }
         }
     </style>
@@ -1621,7 +1630,7 @@
         </div>
         <!-- Utilize Mobile Menu End -->
 
-        <div class="ltn__utilize-overlay"></div>
+        <div class="ltn__utilize-overlay"></div>\
 
         <!-- ENHANCED SEARCH AREA START -->
         <div class="enhanced-search-area">
@@ -1635,16 +1644,17 @@
                                 <div class="search-header">
                                     <i class="fas fa-search search-icon"></i>
                                     <h2 class="search-title">Search Academic Resources</h2>
-                                    <p class="search-subtitle">Discover thousands of academic articles, journals, and research papers</p>
+                                    <p class="search-subtitle">Discover thousands of academic articles, journals, and
+                                        research papers</p>
                                 </div>
                                 <div class="search-form-wrapper">
                                     <form action="/index.php/index/search" method="get" class="enhanced-search-form">
                                         <div class="search-input-group">
                                             <div class="search-input-wrapper">
                                                 <i class="fas fa-search input-icon"></i>
-                                                <input type="text" name="query" class="search-input" 
-                                                       placeholder="Search by title, author, subject, or keywords..." 
-                                                       autocomplete="off">
+                                                <input type="text" name="query" class="search-input"
+                                                    placeholder="Search by title, author, subject, or keywords..."
+                                                    autocomplete="off">
                                                 <div class="search-suggestions" id="searchSuggestions"></div>
                                             </div>
                                             <button type="submit" class="search-btn">
@@ -1692,9 +1702,6 @@
                         </div>
                     </div>
                 </div>
-                <button class="search-close-btn" onclick="closeSearchArea()">
-                    <i class="fas fa-times"></i>
-                </button>
             </div>
         </div>
         <!-- ENHANCED SEARCH AREA END -->
@@ -1720,7 +1727,8 @@
                                 UIN Sjech M. Djamil Djambek Bukittinggi
                             </h1>
                             <p class="hero-description">
-                                The official scientific publication portal providing open access to high-quality journals in Islamic studies, science, technology, and humanities.
+                                The official scientific publication portal providing open access to high-quality
+                                journals in Islamic studies, science, technology, and humanities.
                             </p>
                             <div class="hero-stats">
                                 <div class="stat-item">
@@ -2013,7 +2021,9 @@
                                 </div>
                                 <h5 class="footer-title">E-Journal UIN Bukittinggi</h5>
                                 <p class="footer-description">
-                                    E-Journal UIN Sjech M. Djamil Djambek Bukittinggi is the official scientific publication portal of the State Islamic University of Sjech M. Djamil Djambek Bukittinggi.
+                                    E-Journal UIN Sjech M. Djamil Djambek Bukittinggi is the official scientific
+                                    publication portal of the State Islamic University of Sjech M. Djamil Djambek
+                                    Bukittinggi.
                                 </p>
                                 <div class="footer-social">
                                     <a href="#" class="social-link" title="Facebook">
@@ -2061,7 +2071,7 @@
                                     <li><a href="https://rumahjurnal.uinbukittinggi.ac.id/">Rumah Jurnal</a></li>
                                     <li><a href="https://proceedings.uinbukittinggi.ac.id/">Proceeding</a></li>
                                     <li><a href="">StudentResearchHub</a></li>
-                     
+
                                 </ul>
                             </div>
                         </div>
@@ -2144,10 +2154,10 @@
     <!-- Particles App -->
     <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/script_banner.js"></script>
     <script src="{$baseUrl}/plugins/themes/default/js/custom.js"></script>
-    
+
+    <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/particle_custom2.js"></script>
     <!-- Enhanced Search Area Scripts -->
-    <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/particle_custom1.js"></script>
-    
+
 
 </body>
 
