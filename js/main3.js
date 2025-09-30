@@ -323,9 +323,10 @@
             $this.addClass('active');
             $ltnGalleryActive.isotope({ filter: $filterValue });
         });
+        var $subjectFilter = $('#subject-filter');
 
         // Support filter with <select>
-        $ltnGalleryFilterMenu.on('change', 'select', function() {
+        $subjectFilter.on('change', function() {
             var $this = $(this),
             $filterValue = $this.val();
             $ltnGalleryActive.isotope({ filter: $filterValue });
