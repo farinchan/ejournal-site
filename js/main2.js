@@ -329,6 +329,7 @@
             var $this = $(this),
             $filterValue = $this.val();
             $ltnGalleryActive.isotope({ filter: $filterValue });
+            console.log($filterValue);
         });
 
         /*Grid*/
