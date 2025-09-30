@@ -595,6 +595,16 @@
             background: linear-gradient(135deg, #0B2C3D 0%, #1B3C4D 40%, #2A4C5D 70%, #3A5C6D 100%);
         }
 
+        #particles-js {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.7;
+        }
+
         .hero-background {
             position: absolute;
             top: 0;
@@ -728,11 +738,96 @@
         .hero-description {
             font-size: 1.15rem;
             line-height: 1.8;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             color: rgba(255, 255, 255, 0.9);
             max-width: 95%;
             font-weight: 400;
             animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        /* Hero Search Integration */
+        .hero-search-section {
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .hero-search-form {
+            max-width: 600px;
+        }
+
+        .hero-search-input-group {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50px;
+            padding: 8px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .hero-search-input-group:hover {
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .hero-search-input-wrapper {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-input-icon {
+            position: absolute;
+            left: 20px;
+            color: rgba(11, 44, 61, 0.6);
+            font-size: 1.1rem;
+            z-index: 2;
+        }
+
+        .hero-search-input {
+            width: 100%;
+            height: 50px;
+            padding: 0 20px 0 50px;
+            border: none;
+            background: transparent;
+            font-size: 1rem;
+            color: #2c3e50;
+            outline: none;
+            font-weight: 500;
+        }
+
+        .hero-search-input::placeholder {
+            color: rgba(11, 44, 61, 0.6);
+            font-weight: 400;
+        }
+
+        .hero-search-btn {
+            height: 50px;
+            padding: 0 25px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #0B2C3D 0%, #2A4C5D 100%);
+            color: white;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            min-width: 120px;
+            justify-content: center;
+        }
+
+        .hero-search-btn:hover {
+            background: linear-gradient(135deg, #1B3C4D 0%, #3A5C6D 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(11, 44, 61, 0.3);
         }
 
         .hero-stats {
@@ -1098,6 +1193,26 @@
 
             .hero-description {
                 max-width: 100%;
+                margin-bottom: 25px;
+            }
+
+            .hero-search-input-group {
+                flex-direction: column;
+                gap: 10px;
+                padding: 15px;
+                border-radius: 25px;
+            }
+
+            .hero-search-input {
+                height: 45px;
+                text-align: center;
+                padding: 0 50px;
+            }
+
+            .hero-search-btn {
+                width: 100%;
+                height: 45px;
+                border-radius: 22px;
             }
 
             .hero-stats {
@@ -1122,7 +1237,31 @@
 
             .hero-description {
                 font-size: 1rem;
-                margin-bottom: 25px;
+                margin-bottom: 20px;
+            }
+
+            .hero-search-section {
+                margin-bottom: 30px;
+            }
+
+            .hero-search-input-group {
+                padding: 12px;
+            }
+
+            .hero-search-input {
+                height: 40px;
+                font-size: 0.9rem;
+            }
+
+            .hero-input-icon {
+                left: 15px;
+                font-size: 1rem;
+            }
+
+            .hero-search-btn {
+                height: 40px;
+                font-size: 0.85rem;
+                min-width: 100px;
             }
 
             .hero-stats {
@@ -1814,62 +1953,9 @@
         <!-- Utilize Mobile Menu End -->
 
 
-        <!-- ENHANCED SEARCH AREA START -->
-        <div class="enhanced-search-area">
-            <div id="particles-js"></div>
-            <div class="search-overlay"></div>
-            <div class="search-container">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-8 col-md-10">
-                            <div class="search-content text-center">
-                                <div class="search-header">
-                                    <i class="fas fa-search search-icon"></i>
-                                    <h2 class="search-title">Search Academic Resources</h2>
-                                    <p class="search-subtitle">Discover thousands of academic articles, journals, and
-                                        research papers</p>
-                                </div>
-                                <div class="search-form-wrapper">
-                                    <form action="/index.php/index/search" method="get" class="enhanced-search-form">
-                                        <div class="search-input-group">
-                                            <div class="search-input-wrapper">
-                                                <input type="text" name="query" class="search-input"
-                                                    placeholder="Search by title, author, subject, or keywords..."
-                                                    autocomplete="off">
-                                                <div class="search-suggestions" id="searchSuggestions"></div>
-                                            </div>
-                                            <button type="submit" class="search-btn">
-                                                <i class="fas fa-arrow-right"></i>
-                                                <span>Search</span>
-                                            </button>
-                                        </div>
-
-                                    </form>
-                                </div>
-                                <div class="search-stats">
-                                    <div class="stat-item">
-                                        <span class="stat-number">500+</span>
-                                        <span class="stat-label">Articles</span>
-                                    </div>
-                                    <div class="stat-item">
-                                        <span class="stat-number">25+</span>
-                                        <span class="stat-label">Journals</span>
-                                    </div>
-                                    <div class="stat-item">
-                                        <span class="stat-number">100+</span>
-                                        <span class="stat-label">Authors</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- ENHANCED SEARCH AREA END -->
-
         <!-- HERO BANNER AREA START -->
-        <!-- <div class="hero-banner-area">
+        <div class="hero-banner-area">
+            <div id="particles-js"></div>
             <div class="hero-background">
                 <div class="hero-overlay"></div>
                 <div class="hero-pattern"></div>
@@ -1892,6 +1978,24 @@
                                 The official scientific publication portal providing open access to high-quality
                                 journals in Islamic studies, science, technology, and humanities.
                             </p>
+
+                            <!-- Enhanced Search Form Integration -->
+                            <div class="hero-search-section">
+                                <form action="/index.php/index/search" method="get" class="hero-search-form">
+                                    <div class="hero-search-input-group">
+                                        <div class="hero-search-input-wrapper">
+                                            <i class="fas fa-search hero-input-icon"></i>
+                                            <input type="text" name="query" class="hero-search-input" 
+                                                   placeholder="Search articles, journals, authors..." 
+                                                   autocomplete="off">
+                                        </div>
+                                        <button type="submit" class="hero-search-btn">
+                                            <i class="fas fa-search"></i>
+                                            <span>Search</span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
                             <div class="hero-stats">
                                 <div class="stat-item">
                                     <div class="stat-number" data-count="25">0</div>
@@ -1946,7 +2050,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
         <!-- HERO BANNER AREA END -->
 
 
@@ -2317,9 +2421,9 @@
     <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/script_banner.js"></script>
     <script src="{$baseUrl}/plugins/themes/default/js/custom.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/particle_custom3.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/particle_custom5.js"></script>
     <!-- Enhanced Search Area Scripts -->
-   
+ 
 
 
 </body>
