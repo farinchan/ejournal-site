@@ -333,6 +333,14 @@
             console.log($filterValue);
         });
 
+        var $factFilter = $('#faculty-filter');
+        $factFilter.on('change', function() {
+            var $this = $(this),
+            $filterValue = $this.val();
+            $ltnGalleryActive.isotope({ filter: $filterValue });
+            console.log($filterValue);
+        });
+
         /*Grid*/
         $ltnGalleryActive.each(function(){
             var $this = $(this),

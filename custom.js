@@ -97,6 +97,8 @@ $.ajax({
         data.data.map(function (item) {
             $('#editor_chief_' + item.url_path).html(item.editor_chief_name)
             $('#fee_' + item.url_path).html(new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR' }).format(item.author_fee))
+            $('#filter_' + item.url_path).addClass(item.subject)
+            $('#filter_' + item.url_path).addClass(item.faculty)
             item.indexing.map(function (itemx) {
                 console.log(itemx.label);
                 $('#filter_' + item.url_path).addClass(itemx.label)
