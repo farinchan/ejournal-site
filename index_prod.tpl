@@ -2317,7 +2317,7 @@
     <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/script_banner.js"></script>
     <script src="{$baseUrl}/plugins/themes/default/js/custom.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/particle_custom4.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/farinchan/ejournal-site@main/particle_custom3.js"></script>
     <!-- Enhanced Search Area Scripts -->
    
 
